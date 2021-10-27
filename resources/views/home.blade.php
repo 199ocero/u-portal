@@ -13,8 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    @if (Auth::user()->hasRole('superadministrator'))
+                        You are logged in as Super Admin!
+                    @endif
+                    @if (Auth::user()->hasRole('administrator'))
+                        You are logged in as Admin!
+                    @endif
+                    @if (Auth::user()->hasRole('instructor'))
+                        You are logged in as Instructor!
+                    @endif
+                    @if (Auth::user()->hasRole('student'))
+                        You are logged in as Student!
+                    @endif
+                    
                 </div>
             </div>
         </div>
