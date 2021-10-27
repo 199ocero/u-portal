@@ -16,7 +16,7 @@ use App\Http\Controllers\SuperAdministrator;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
