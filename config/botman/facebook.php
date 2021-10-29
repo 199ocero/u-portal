@@ -76,21 +76,9 @@ return [
             'composer_input_disabled' => 'true',
             'call_to_actions' => [
                 [
-                    'title' => 'My Account',
-                    'type' => 'nested',
-                    'call_to_actions' => [
-                        [
-                            'title' => 'Pay Bill',
-                            'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
-                        ],
-                    ],
-                ],
-                [
-                    'type' => 'web_url',
-                    'title' => 'Latest News',
-                    'url' => 'http://botman.io',
-                    'webview_height_ratio' => 'full',
+                    'type' => 'postback',
+                    'title' => 'Announcement',
+                    'payload' => 'ANNOUNCEMENT_PAYLOAD'
                 ],
             ],
         ],
