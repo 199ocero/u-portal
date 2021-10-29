@@ -18,7 +18,7 @@ $botman->hears('FB_PAYLOAD', function ($bot) {
     $senderId = $bot->getUser()->getId();
     if($senderId==3635465636550195){
         $bot->reply('👋Hello Jay-Are Main Account');
-    }elseif($senderId==3635465636550195){
+    }elseif($senderId==3989971451082041){
         $bot->reply('👋Hello Jay-Are Second Account');
     }else{
         $bot->reply('👋Hello Not Registered');
