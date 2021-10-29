@@ -13,7 +13,7 @@
                   <!-- /.box-header -->
                   <form method="POST" action="{{route('view.student.add.section',$subjectID)}}">
                     @csrf
-                      <input type="hidden" id="role_id" class="role_id form-control" type="text" name="role_id" value="instructor"/>
+                      <input type="hidden" id="role_id" class="role_id form-control" type="text" name="role_id" value="student"/>
                       <div class="box-body">
                           <div class="row">
                             <div class="col-md-6">

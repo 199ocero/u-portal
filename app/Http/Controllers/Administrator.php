@@ -353,7 +353,9 @@ class Administrator extends Controller
         $subject = Subject::all();
         return view('pages.admin.subject.view-subject',compact('subject'));
     }
-
+    public function viewAddPageSubject(){
+        return view('pages.admin.subject.create-subject');
+    }
     public function viewAddSubject(Request $request){
 
         $validateData = $request->validate([

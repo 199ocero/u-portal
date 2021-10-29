@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrator;
 use App\Http\Controllers\SuperAdministrator;
+use App\Http\Controllers\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
         Route::get('/subject/view',[Administrator::class,'viewSubject'])->name('view.administrator.subject');
 
         //CRUD-Subject
+        Route::get('/subject/add/view',[Administrator::class,'viewAddPageSubject'])->name('view.add.view.subject');
         Route::post('/subject/add',[Administrator::class,'viewAddSubject'])->name('view.add.subject');
         Route::get('/subject/edit/{id}',[Administrator::class,'viewEditSubject'])->name('view.edit.subject');
         Route::post('/subject/update/{id}',[Administrator::class,'viewUpdateSubject'])->name('view.update.subject');
@@ -128,5 +130,12 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
         //CRUD Announcement
         Route::get('/announcement/view/',[Student::class,'viewAnnouncement'])->name('view.announcement');
         Route::get('/announcement/details/{id}',[Student::class,'viewAnnouncementDetails'])->name('view.announcement.details');
+    
+    
+        //Facebook
+        Route::get('/facebook/view/',[FacebookController::class,'viewFacebookID'])->name('view.facebook');
+        Route::post('/facebook/add/',[FacebookController::class,'viewAddFacebookID'])->name('view.facebook.add');
+        Route::post('/facebook/update/',[FacebookController::class,'viewUpdateFacebookID'])->name('view.facebook.update');
+    
     });
 });

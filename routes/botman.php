@@ -6,23 +6,14 @@ $botman = resolve('botman');
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
-    $input = json_decode(file_get_contents('php://input'), true);
-    $senderId = $input['entry'][0]['messaging'][0]['sender']['id'];
-    // $bot->reply("Hi $firstName 👋!\n\nI think this is your first time using this chatbot right?\n\nI am 🤖UPortal🤖 giving you free access to University Portal.\n\nNow, I will give your Facebook ID. Copy your ID and paste it in your student's portal.");
-    $bot->reply('Facebook ID: '.$senderId);
-
-    $bot->reply('👋Hello! This is UPortal, a hussle free access to university portal.');
+    $bot->reply("Hi $firstName 👋!\n\nI think this is your first time using this chatbot right?\n\nI am 🤖UPortal🤖 giving you free access to University Portal.\n\nNow, this is give your Facebook ID. Copy your ID and paste it in your student's portal.");
+    $bot->reply('✅Facebook ID: '.$senderId);
 });
 $botman->hears('FB_PAYLOAD', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
-    if($senderId==3635465636550195){
-        $bot->reply('👋Hello Jay-Are Main Account');
-    }elseif($senderId==3989971451082041){
-        $bot->reply('👋Hello Jay-Are Second Account');
-    }else{
-        $bot->reply('👋Hello Not Registered');
-    }
-    
+   
+    $bot->reply("Hi $firstName 👋!\n\n. If you not put yet your Facebook ID, just copy down below and paste it in your students portal. Just click the visit website.");
+    $bot->reply('✅Facebook ID: '.$senderId);
 });
 $botman->hears('Start conversation', BotManController::class.'@startConversation');

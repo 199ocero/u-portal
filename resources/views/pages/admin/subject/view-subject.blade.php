@@ -27,7 +27,7 @@
            <div class="box">
               <div class="box-header with-border">
                   <h3 class="box-title">Subject List</h3>
-                  <a href="" class="btn btn-primary float-right"><i class="glyphicon glyphicon-plus"></i> Add Subject</a>
+                  <a href="{{route('view.add.view.subject')}}" class="btn btn-primary float-right"><i class="glyphicon glyphicon-plus"></i> Add Subject</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

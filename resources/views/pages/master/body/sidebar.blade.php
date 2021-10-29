@@ -79,7 +79,8 @@
           </li>
           <li class="header nav-small-cap">Subject Management</li>
           <li class="treeview {{(($prefix == '/administrator' && $route=='view.administrator.subject')
-          ||($prefix == '/administrator' && $route=='view.edit.subject'))?'active':''}}">
+          ||($prefix == '/administrator' && $route=='view.edit.subject')
+          ||($prefix == '/administrator' && $route=='view.add.view.subject'))?'active':''}}">
             <a href="#">
               <i data-feather="book"></i>
               <span>Subject</span>
@@ -136,7 +137,20 @@
             <ul class="treeview-menu">
               <li><a href="{{url('student/announcement/view/')}}"><i class="ti-more"></i>View Announcement</a></li>
             </ul>
-          </li>  
+          </li>
+          <li class="header nav-small-cap">Facebook Management</li>
+          <li class="treeview  {{(($prefix == '/student' && $route=='view.facebook'))?'active':''}}">
+            <a href="#">
+              <i data-feather="facebook"></i>
+              <span>Facebook ID</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{url('student/facebook/view/')}}"><i class="ti-more"></i>View Facebook ID</a></li>
+            </ul>
+          </li>    
         @endrole    
         
 		  <hr>
