@@ -56,11 +56,7 @@ return [
         'greeting' => [
             [
                 'locale' => 'default',
-                'text' => 'Hello!',
-            ],
-            [
-                'locale' => 'en_US',
-                'text' => 'Timeless apparel for the masses.',
+                'text' => 'UPortal- hussle free access to university portal!',
             ],
         ],
     ],
