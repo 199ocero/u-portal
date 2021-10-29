@@ -17,7 +17,7 @@
 	<!-- Style-->  
 	<link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
-     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -51,13 +51,38 @@
 	<script src="{{asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
 	<script src="{{asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
 	<script src="{{asset('backend/js/pages/data-table.js')}}"></script>
-
-  
+	<script src="{{asset('backend/js/pages/jquery.toaster.js')}}"></script>
+  <script src="{{asset('../assets/vendor_components/dropzone/dropzone.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 	<!-- Sunny Admin App -->
 	<script src="{{asset('backend/js/template.js')}}"></script>
 	<script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
 	
-	
+	<script>
+    @if(Session::has('success'))
+
+      $.toaster("{{Session::get('success')}}",'Success','success');
+        
+    @elseif(Session::has('danger'))
+      $.toaster("{{Session::get('danger')}}",'Fail','danger');
+    @endif
+  </script>
+  <script>
+    $('#file_id').on('change',function(){
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    });
+    $('input[type=file]').change(function(){
+        if($('input[type=file]').val()==''){
+            $('button').attr('disabled',true)
+        } 
+        else{
+        $('button').attr('disabled',false);
+        }
+    });
+</script>
 
 </body>
 </html>

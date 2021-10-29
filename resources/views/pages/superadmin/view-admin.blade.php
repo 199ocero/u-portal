@@ -6,10 +6,11 @@
       <section class="content">
         <div class="row">
           <div class="col-12">
-
+            
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">Admin Accounts</h3>
+                  <h3 class="box-title">Admin Accounts</h3>
+                  <a href="{{route('view.super.administrator.add')}}" class="btn btn-primary float-right">Add Admin</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

@@ -17,7 +17,7 @@
 		  </ul>
 	  </div>
 		
-      <div class="navbar-custom-menu r-side">
+      {{-- <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 		  		
 		  
@@ -39,6 +39,6 @@
           </li>	
 			
         </ul>
-      </div>
+      </div> --}}
     </nav>
   </header>
