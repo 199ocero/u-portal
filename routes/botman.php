@@ -1,4 +1,6 @@
 <?php
+use App\Models\User;
+use App\Models\Facebook;
 use App\Http\Controllers\BotManController;
 
 $botman = resolve('botman');
@@ -16,4 +18,13 @@ $botman->hears('FB_PAYLOAD', function ($bot) {
     $bot->reply("Hi $firstName 👋!\n\n. If you not put yet your Facebook ID, just copy down below and paste it in your students portal. Just click the visit website.");
     $bot->reply('✅Facebook ID: '.$senderId);
 });
+
+$botman->hears('PERSONAL_PAYLOAD', function ($bot) {
+    $senderId = $bot->getUser()->getId();
+    $facebookID = Facebook::where('facebook_id',$senderId)->first();
+    $student = User::find($facebookID->student_id);
+    $bot->reply("First Name: $student->first_name\nMiddle Name: $student->middle_name");
+});
+
+
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
