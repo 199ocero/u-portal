@@ -17,6 +17,7 @@ class CreateDropsTable extends Migration
             $table->bigIncrements('id');
             $table->string('student_id');
             $table->string('section_id');
+            $table->string('subject_id');
             $table->timestamps();
         });
     }
