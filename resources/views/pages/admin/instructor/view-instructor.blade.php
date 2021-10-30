@@ -24,7 +24,6 @@
                 </div>
               </div>
             </form>
-            
            <div class="box">
               <div class="box-header with-border">
                   <h3 class="box-title">Instructor Accounts</h3>

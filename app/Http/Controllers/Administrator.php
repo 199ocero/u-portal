@@ -7,18 +7,20 @@ use App\Models\Drop;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Subject;
+use App\Models\Facebook;
 use App\Models\Irregular;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Imports\StudentImport;
 use App\Imports\SubjectImport;
 use App\Models\StudentSection;
 use Illuminate\Validation\Rule;
 use App\Imports\InstructorImport;
-use App\Models\Announcement;
-use App\Models\InstructorSectionSubject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\InstructorSectionSubject;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Administrator extends Controller
 {
@@ -221,7 +223,18 @@ class Administrator extends Controller
 
         foreach($studentSection as $studentSection){
             User::find($studentSection->student_id)->delete();
+            
+            // $studentFB = Facebook::find($studentSection->student_id)->first();
+
+            try{
+                Facebook::where('student_id',$studentSection->student_id)->delete();
+            }
+            catch(ModelNotFoundException $err){
+                
+            }
+        
         }
+
         Section::find($id)->delete();
         StudentSection::where('section_id',$id)->delete();
         Announcement::where('section_id',$id)->delete();
@@ -343,6 +356,16 @@ class Administrator extends Controller
         $studentSection = StudentSection::where('student_id',$id)->first();
         StudentSection::where('student_id',$id)->delete();
         User::find($id)->delete();
+
+
+        try{
+            Facebook::where('student_id',$studentSection->student_id)->delete();
+        }
+        catch(ModelNotFoundException $err){
+            
+        }
+
+
         $irreg = Irregular::find($id);
         if($irreg){
             Irregular::find($id)->delete();

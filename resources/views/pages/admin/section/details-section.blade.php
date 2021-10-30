@@ -51,7 +51,7 @@
                                       @endif
                                       <td>
                                         <a href="{{url('administrator/section/edit-student/'.$assign['student']['id'])}}" data-toggle="tooltip" title="Edit Student" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                        <a href="{{url('administrator/section/delete-student/'.$assign['student']['id'])}}" data-toggle="tooltip" title="Delete Student" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{{url('administrator/section/delete-student/'.$assign['student']['id'])}}" id="delete" data-toggle="tooltip" title="Delete Student" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                       </td>
                                   </tr>
                               @endforeach

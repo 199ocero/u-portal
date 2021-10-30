@@ -104,7 +104,8 @@
           <li class="treeview {{(($prefix == '/instructor' && $route=='view.instructor.section.subject')
           ||($prefix == '/instructor' && $route=='view.details.instructor.section.subject')
           ||($prefix == '/instructor' && $route=='view.instructor.student.section')
-          ||($prefix == '/instructor' && $route=='view.announcement'))?'active':''}}">
+          ||($prefix == '/instructor' && $route=='view.announcement')
+          ||($prefix == '/instructor' && $route=='view.add.page.announcement'))?'active':''}}">
             <a href="#">
               <i data-feather="book"></i>
               <span>Assign</span>
