@@ -59,9 +59,9 @@
                                   <th scope="row">{{$i++}}</th>
                                   <td>{{$studentSection['section']['section']}}</td>
                                   <td>
-                                      <a href="{{url('administrator/section/edit/'.$studentSection['section']['id'])}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                      <a href="{{url('administrator/section/delete/'.$studentSection['section']['id'])}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
-                                      <a href="{{url('administrator/section/details/'.$studentSection['section']['id'])}}" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a>
+                                      <a href="{{url('administrator/section/edit/'.$studentSection['section']['id'])}}" data-toggle="tooltip" title="Edit Section" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
+                                      <a href="{{url('administrator/section/delete/'.$studentSection['section']['id'])}}" id="delete" data-toggle="tooltip" title="Delete Section" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                      <a href="{{url('administrator/section/details/'.$studentSection['section']['id'])}}" data-toggle="tooltip" title="View Student" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a>
                                   </td>
                               </tr>
                           @endforeach

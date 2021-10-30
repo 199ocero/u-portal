@@ -14,6 +14,8 @@ use App\Imports\SubjectImport;
 use App\Models\StudentSection;
 use Illuminate\Validation\Rule;
 use App\Imports\InstructorImport;
+use App\Models\Announcement;
+use App\Models\InstructorSectionSubject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -222,6 +224,8 @@ class Administrator extends Controller
         }
         Section::find($id)->delete();
         StudentSection::where('section_id',$id)->delete();
+        Announcement::where('section_id',$id)->delete();
+        InstructorSectionSubject::where('section_id',$id)->delete();
         return redirect()->route('view.administrator.section')->with('success','Section Deleted!');
     }
 
@@ -387,7 +391,9 @@ class Administrator extends Controller
         return redirect()->route('view.administrator.subject')->with('success','Subject Updated!');
     }
     public function viewDeleteSubject($id){
-        $subject = Subject::find($id)->delete();
+        Subject::find($id)->delete();
+        Announcement::where('subject_id',$id)->delete();
+        InstructorSectionSubject::where('subject_id',$id)->delete();
         return redirect()->route('view.administrator.subject')->with('success','Subject Deleted!');
     }
 

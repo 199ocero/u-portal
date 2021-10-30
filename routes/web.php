@@ -103,9 +103,9 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
         //CRUD-Student
         Route::get('/section/add/student/{section_id}/{subject_id}',[Instructor::class,'viewAddPageStudentSection'])->name('view.instructor.student.section');
         Route::post('/section/add-student/{section_id}/{subject_id}',[Instructor::class,'viewAddStudentSection'])->name('view.instructor.student.add.section');
-        Route::get('/section/edit-student/{student_id}/{section_id}',[Instructor::class,'viewEditStudentSection'])->name('view.instructor.student.edit.section');
-        Route::post('/section/update-student/{student_id}/{section_id}',[Instructor::class,'viewUpdateStudentSection'])->name('view.instructor.student.update.section');
-        Route::get('/section/delete-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewDeleteStudentSection'])->name('view.instructor.student.delete.section');
+        // Route::get('/section/edit-student/{student_id}/{section_id}',[Instructor::class,'viewEditStudentSection'])->name('view.instructor.student.edit.section');
+        // Route::post('/section/update-student/{student_id}/{section_id}',[Instructor::class,'viewUpdateStudentSection'])->name('view.instructor.student.update.section');
+        // Route::get('/section/delete-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewDeleteStudentSection'])->name('view.instructor.student.delete.section');
         Route::get('/section/drop-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewDropStudentSection'])->name('view.instructor.student.drop.section');
         Route::get('/section/undrop-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewUndropStudentSection'])->name('view.instructor.student.undrop.section');
         Route::get('/section/add-irregular/{section_id}/{subject_id}/{id}',[Instructor::class,'viewAddIrregularStudentSection'])->name('view.instructor.student.add.irregular.section');

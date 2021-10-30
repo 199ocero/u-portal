@@ -47,8 +47,8 @@
                                       <th scope="row">{{$i++}}</th>
                                       <td>{{$subject->subject}}</td>
                                       <td>
-                                          <a href="{{url('administrator/subject/edit/'.$subject->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                          <a href="{{url('administrator/subject/delete/'.$subject->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                          <a href="{{url('administrator/subject/edit/'.$subject->id)}}" data-toggle="tooltip" title="Edit Subject" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
+                                          <a href="{{url('administrator/subject/delete/'.$subject->id)}}" id="delete" data-toggle="tooltip" title="Delete Subject" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                       </td>
                                   </tr>
                               @endforeach

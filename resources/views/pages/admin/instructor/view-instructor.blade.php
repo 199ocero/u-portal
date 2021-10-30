@@ -58,8 +58,8 @@
                                     <td>{{$instructor->email}}</td>
                                     <td>{{$instructor->created_at->format('m-d-Y')}}</td>
                                     <td style="white-space: nowrap;width:1%">
-                                        <a href="{{url('administrator/instructor/edit/'.$instructor->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                        <a href="{{url('administrator/instructor/delete/'.$instructor->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{{url('administrator/instructor/edit/'.$instructor->id)}}" data-toggle="tooltip" title="Edit Instructor" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
+                                        <a href="{{url('administrator/instructor/delete/'.$instructor->id)}}" id="delete" data-toggle="tooltip" title="Delete Instructor" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

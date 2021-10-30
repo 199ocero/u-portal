@@ -34,7 +34,7 @@
                                       <td>{{$assign->middle_name}}</td>
                                       <td>{{$assign->last_name}}</td>
                                       <td>
-                                          <a href="{{url('instructor/section/add-irregular/'.$sectionID.'/'.$subjectID.'/'.$assign->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-plus"></i></a>
+                                          <a href="{{url('instructor/section/add-irregular/'.$sectionID.'/'.$subjectID.'/'.$assign->id)}}" data-toggle="tooltip" title="Add Irregular Student" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-plus"></i></a>
                                       </td>
                                   </tr>
                               @endforeach

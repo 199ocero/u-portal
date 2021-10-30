@@ -76,8 +76,8 @@
                                           <a href="{{url('instructor/assign/section-subject/details/'.$assign->section_id.'/'.$assign['subject']['id'])}}" class="btn btn-primary text-white">{{$assign['section']['section']}}</a>  
                                       </td>
                                       <td>
-                                          <a href="{{url('instructor/announcement/view/'.$assign->section_id.'/'.$assign->subject_id)}}" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-envelope"></i></a>
-                                          <a href="{{url('instructor/assign/section-subject/delete/'.$assign->id.'/'.$assign->section_id.'/'.$assign->subject_id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                          <a href="{{url('instructor/announcement/view/'.$assign->section_id.'/'.$assign->subject_id)}}" data-toggle="tooltip" title="View Announcement" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-envelope"></i></a>
+                                          <a href="{{url('instructor/assign/section-subject/delete/'.$assign->id.'/'.$assign->section_id.'/'.$assign->subject_id)}}" id="delete" data-toggle="tooltip" title="Delete Section and Subject" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                       </td>
                                   </tr>
                               @endforeach

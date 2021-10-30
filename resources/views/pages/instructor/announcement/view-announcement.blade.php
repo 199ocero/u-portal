@@ -33,8 +33,8 @@
                                       <td>{{$announcement->deadline->format('h:i A')}}</td>
                                       <td>{{$announcement->act_title}}</td>
                                       <td>
-                                        <a href="{{url('instructor/announcement/edit/'.$announcement->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                        <a href="{{url('instructor/announcement/delete/'.$section_id.'/'.$subject_id.'/'.$announcement->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{{url('instructor/announcement/edit/'.$announcement->id)}}" data-toggle="tooltip" title="Edit Announcement" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
+                                        <a href="{{url('instructor/announcement/delete/'.$section_id.'/'.$subject_id.'/'.$announcement->id)}}" id="delete" data-toggle="tooltip" title="Delete Announcement" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                       </td>
                                   </tr>
                               @endforeach
