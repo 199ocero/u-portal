@@ -244,7 +244,7 @@ class Instructor extends Controller
         return redirect()->to('instructor/assign/section-subject/details/'.$section_id.'/'.$subject_id)->with('success','Student Drop!');
     }
     public function viewUndropStudentSection($student_id,$section_id,$subject_id){
-        Drop::where('student_id',$student_id)->delete();
+        Drop::where('student_id',$student_id)->where('section_id',$section_id)->where('subject_id',$subject_id)->delete();
         return redirect()->to('instructor/assign/section-subject/details/'.$section_id.'/'.$subject_id)->with('success','Student Added!');
     }
     public function viewDeleteInstructorSectionSubject($id,$section_id,$subject_id){

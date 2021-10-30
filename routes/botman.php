@@ -38,18 +38,21 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     $student = StudentSection::where('student_id',$facebookID->student_id)->get()->toArray();
     $irregular = Irregular::where('student_id',$facebookID->student_id)->get()->toArray();
     $status = array();
-    $announce = Announcement::all();
-    $announces = $announce->toArray();
     $announcement= collect();
+
+
     
+    // dd($drop->toArray());
     if(count($drop)!=0){
-        for($i=0;$i<count($announces);$i++){
-            for($y=0;$y<count(array($drop));$y++){
-                if($announce[$i]['section_id']!=$drop[$y]['section_id']&&$announce[$i]['subject_id']!=$drop[$y]['subject_id']){
-                    $announcement->push($announce[$i]);
-                }
-            }
+
+        $section_id = [];
+        $subject_id = [];
+        foreach($drop as $drop){
+            $section_id[]=$drop->section_id;
+            $subject_id[]=$drop->subject_id;
         }
+        $announcement = Announcement::whereNotIn('section_id',$section_id)->whereNotIn('subject_id',$subject_id)->get();
+
         for($i=0;$i<count($announcement);$i++){
             for($y=0;$y<count($irregular);$y++){
                 if($irregular[$y]['section_id']==$announcement[0]['section_id'] && $irregular[$y]['subject_id']==$announcement[0]['subject_id']){
