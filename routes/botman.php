@@ -84,7 +84,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     foreach($announcement as $announcement){
         $date = $announcement->deadline->format('F j, Y');
         $time = $announcement->deadline->format('h:i A');
-        $anns = "✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+        $section = $announcement['section']['section'];
+        $subject = $announcement['subject']['subject'];
+        $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
     }
     $bot->reply("📝 Announcement Information 📝\n\n$anns");
 });

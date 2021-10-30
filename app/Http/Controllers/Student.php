@@ -93,7 +93,7 @@ class Student extends Controller
         //         }
         //     }
         // }
-        // dd($announcement);
+        // dd($announcement->toArray());
         return view('pages.student.view-announcement',compact('announcement','status'));
     }
     public function viewAnnouncementDetails($id){
