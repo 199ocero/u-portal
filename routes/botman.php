@@ -80,8 +80,13 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
             }
         }
     }
-    $bot->reply("📝 Announcement Information 📝\n\n
-    ✅{{$announcement->act_title}}");
+    $anns = "";
+    foreach($announcement as $announcement){
+        $date = $announcement->deadline->format('F j, Y');
+        $time = $announcement->deadline->format('h:i A');
+        $anns = "✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+    }
+    $bot->reply("📝 Announcement Information 📝\n\n$anns");
 });
 
 

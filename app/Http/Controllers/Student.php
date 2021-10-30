@@ -59,6 +59,41 @@ class Student extends Controller
                 }
             }
         }
+        
+        // for($i=0;$i<count($announcement);$i++){
+        //     for($y=0;$y<count($irregular);$y++){
+        //         if($irregular[$y]['section_id']==$announcement[0]['section_id'] && $irregular[$y]['subject_id']==$announcement[0]['subject_id']){
+        //             array_push($status,'Irregular');
+        //             break;
+        //         }else{
+        //             array_push($status,'Regular');
+        //             break;
+        //         }
+        //     }
+        // }
+        // dd($announcement);
+        // for($i=0;$i<count($student);$i++){
+        //     $announce = Announcement::where('section_id',$student[$i]['section_id'])->get();
+
+        //     for($x=0;$x<count($announce);$x++){
+
+        //         $announcement->push($announce[$x]);
+        //         $announces = Announcement::where('section_id',$student[$i]['section_id'])->get()->toArray();
+
+
+
+        //         for($y=0;$y<count($irregular);$y++){
+        //             if($irregular[$y]['section_id']==$announces[0]['section_id'] && $irregular[$y]['subject_id']==$announces[0]['subject_id']){
+        //                 array_push($status,'Irregular');
+        //                 break;
+        //             }else{
+        //                 array_push($status,'Regular');
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        // dd($announcement);
         return view('pages.student.view-announcement',compact('announcement','status'));
     }
     public function viewAnnouncementDetails($id){
