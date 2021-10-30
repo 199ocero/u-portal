@@ -84,14 +84,20 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
         }
     }
     $anns = "";
-    foreach($announcement as $announcement){
-        $date = $announcement->deadline->format('F j, Y');
-        $time = $announcement->deadline->format('h:i A');
-        $section = $announcement['section']['section'];
-        $subject = $announcement['subject']['subject'];
-        $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+    if(count($announcement->toArray())==0){
+        $bot->reply("No announcement. You are drop in all section and subject.");
+    }else{
+        foreach($announcement as $announcement){
+            $date = $announcement->deadline->format('F j, Y');
+            $time = $announcement->deadline->format('h:i A');
+            $section = $announcement['section']['section'];
+            $subject = $announcement['subject']['subject'];
+            $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+        }
+        
+        $bot->reply("📝 Announcement Information 📝\n\n$anns");
     }
-    $bot->reply("📝 Announcement Information 📝\n\n$anns");
+    
 });
 
 
