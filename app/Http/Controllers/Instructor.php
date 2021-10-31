@@ -9,6 +9,7 @@ use App\Models\Section;
 use App\Models\Subject;
 use App\Models\Irregular;
 use App\Models\Announcement;
+use App\Models\Facebook;
 use Illuminate\Http\Request;
 use App\Models\StudentSection;
 use Illuminate\Validation\Rule;
@@ -303,10 +304,30 @@ class Instructor extends Controller
         $announcement->resources = $request->resources;
         $announcement->save();
 
-        // $botman = app('botman');
-        // $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
+        $botman = app('botman');
+        
 
         // $announce = Announcement::find($announcement->id);
+
+        
+        $assign = InstructorSectionSubject::where('subject_id',$subject_id)->where('instructor_id',Auth::id())->where('section_id',$section_id)->first();
+        $studentSection = StudentSection::where('section_id',$assign->section_id)->get();
+        $student_id = [];
+        foreach($studentSection as $studentSection){
+            $student_id[]=$studentSection->student_id;
+        }
+        $drop = Drop::all();
+        $studentDrop_id = [];
+        foreach($drop as $drop){
+            $studentDrop_id[]=$drop->student_id;
+        }
+        $result = array_diff($student_id, $studentDrop_id);
+        $result = array_values($result);
+        $students = User::find($result);
+        foreach($students as $students){
+            $fbID = Facebook::where('student_id',$students->id)->first();
+            $botman->say('Hello there!',$fbID->facebook_id, FacebookDriver::class);
+        }
 
         return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
     }
