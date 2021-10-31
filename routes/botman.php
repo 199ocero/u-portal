@@ -100,9 +100,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-$dialogflow = DialogFlowV2::create()->listenForAction();
-$botman->middleware->received($dialogflow);
+// $dialogflow = DialogFlowV2::create()->listenForAction();
+// $botman->middleware->received($dialogflow);
 
-$botman->hears('input.welcome', function ($bot) {
-    $bot->reply('Hello Jay-Are');
-});
+// $botman->hears('input.welcome', function ($bot) {
+//     $bot->reply('Hello Jay-Are');
+// });
