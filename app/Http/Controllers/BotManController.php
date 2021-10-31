@@ -39,6 +39,6 @@ class BotManController extends Controller
     public function testOriginate()
     {
         $botman = app('botman'); // <- this is important too...
-        $botman->say('Sasageyo there!',3635465636550195, FacebookDriver::class);
+        $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
     }
 }
