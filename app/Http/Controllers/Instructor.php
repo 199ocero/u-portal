@@ -306,9 +306,9 @@ class Instructor extends Controller
         // $botman = app('botman');
         // $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
 
-        $announce = Announcement::find($announcement->id);
-        
-        // return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
+        // $announce = Announcement::find($announcement->id);
+
+        return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
     }
     public function viewEditAnnouncement($id){
         $announcement = Announcement::find($id);
