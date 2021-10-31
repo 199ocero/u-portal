@@ -4,7 +4,7 @@ use App\Models\User;
 use App\Models\Facebook;
 use App\Models\Irregular;
 use App\Models\Announcement;
-// use Dialogflow2\DialogFlowV2;
+use Dialogflow2\DialogFlowV2;
 use App\Models\StudentSection;
 
 $botman = resolve('botman');
@@ -100,9 +100,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-// $dialogflow = DialogFlowV2::create()->listenForAction();
-// $botman->middleware->received($dialogflow);
+$dialogflow = DialogFlowV2::create()->listenForAction();
+$botman->middleware->received($dialogflow);
 
-// $botman->hears('input.welcome', function ($bot) {
-//     $bot->reply('Hello Jay-Are');
-// });
+$botman->hears('input.welcome', function ($bot) {
+    $bot->reply('Hello Jay-Are');
+});
