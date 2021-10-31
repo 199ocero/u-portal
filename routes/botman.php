@@ -103,9 +103,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-$dialogflow = DialogFlow::create('en');
+$dialogflow = DialogFlow::create('en')->ignoreIntentPattern();
 $botman->middleware->received($dialogflow);
+
 $botman->hears('input.welcome', function ($bot) {
-    $extras = $bot->getMessage()->getExtras();
-    $bot->reply($extras['apiReply']);
-})->middleware($dialogflow);
+    $bot->reply('a reply');
+});
