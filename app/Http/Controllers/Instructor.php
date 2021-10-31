@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
-use App\Models\Drop;
 use Carbon\Carbon;
+use App\Models\Drop;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Subject;
 use App\Models\Irregular;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\StudentSection;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\InstructorSectionSubject;
+use BotMan\Drivers\Facebook\FacebookDriver;
 
 class Instructor extends Controller
 {
@@ -282,7 +283,8 @@ class Instructor extends Controller
     public function viewAddPageAnnouncement($section_id,$subject_id){
         $section_id = $section_id;
         $subject_id = $subject_id;
-        
+        $botman = app('botman'); // <- this is important too...
+        $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
         return view('pages.instructor.announcement.create-announcement',compact('section_id','subject_id'));
     }
     public function viewAddAnnouncement(Request $request,$section_id,$subject_id){
