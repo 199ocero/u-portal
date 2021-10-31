@@ -10,7 +10,7 @@ use App\Http\Controllers\BotManController;
 use BotMan\BotMan\Middleware\Dialogflow;
 
 $botman = resolve('botman');
-$dialogflow = Dialogflow::create('fc2d2b75550cfae94d2e92c4edd778306fbeeceb')->listenForAction();
+$dialogflow = Dialogflow::create('112993177356571500898')->listenForAction();
 $botman->middleware->received($dialogflow);
 
 $botman->hears('GET_STARTED', function ($bot) {
