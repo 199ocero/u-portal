@@ -6,11 +6,11 @@
       <section class="content">
         <div class="row">
           <div class="col-12">
-              <form method="POST" action="{{url('/testoriginate')}}"></form>
+              <form method="GET" action="{{url('/testoriginate')}}"></form>
               <div class="box">
                   <div class="box-body">
                       <input type="text">
-                      <button type="submit" class="btn btn-primary text-white btn-block">Submit</button>
+                      <button type="submit" class="btn btn-primary text-white">Submit</button>
                   </div>
               </div>
             <div class="box">
