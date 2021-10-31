@@ -11,7 +11,6 @@ use BotMan\Middleware\DialogFlow\V2\DialogFlow;
 
 $botman = resolve('botman');
 
-
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
@@ -103,9 +102,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-$dialogflow = DialogFlow::create('en')->ignoreIntentPattern();
-$botman->middleware->received($dialogflow);
+// $dialogflow = DialogFlow::create('en')->ignoreIntentPattern();
+// $botman->middleware->received($dialogflow);
 
-$botman->hears('input.welcome', function ($bot) {
-    $bot->reply('a reply');
-});
+// $botman->hears('input.welcome', function ($bot) {
+//     $bot->reply('a reply');
+// });
