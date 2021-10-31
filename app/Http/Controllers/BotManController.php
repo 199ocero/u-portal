@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use BotMan\Drivers\Facebook\FacebookDriver;
 
 class BotManController extends Controller
 {
@@ -33,5 +34,11 @@ class BotManController extends Controller
     public function startConversation(BotMan $bot)
     {
         $bot->startConversation(new ExampleConversation());
+    }
+
+    public function testOriginate()
+    {
+        $botman = app('botman'); // <- this is important too...
+        $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
     }
 }

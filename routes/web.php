@@ -5,6 +5,7 @@ use App\Http\Controllers\Instructor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrator;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\SuperAdministrator;
 use App\Http\Controllers\FacebookController;
 
@@ -24,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::post('/testoriginate', 'BotManController@testOriginate');
 
 Auth::routes();
 
@@ -120,6 +122,9 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
         Route::get('/announcement/edit/{id}',[Instructor::class,'viewEditAnnouncement'])->name('view.edit.announcement');
         Route::post('/announcement/update/{section_id}/{subject_id}/{id}',[Instructor::class,'viewUpdateAnnouncement'])->name('view.update.announcement');
         Route::get('/announcement/delete/{section_id}/{subject_id}/{id}',[Instructor::class,'viewDeleteAnnouncement'])->name('view.delete.announcement');
+    
+        
+        Route::post('/announcement/send',[BotManController::class,'viewSend'])->name('view.send.announcement');
     });
 });
 
