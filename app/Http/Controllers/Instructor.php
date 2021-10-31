@@ -324,11 +324,20 @@ class Instructor extends Controller
         $result = array_diff($student_id, $studentDrop_id);
         $result = array_values($result);
         $students = User::find($result);
+        $fbIDs = [];
         foreach($students as $students){
-            $fbID = Facebook::where('student_id',$students->id)->first();
-            $botman->say('Hello there!',$fbID->facebook_id, FacebookDriver::class);
+            // $fbID = Facebook::where('student_id',$students->id)->first();
+            $fbIDs[]=$students->id;
+            
         }
 
+        $fbID = Facebook::whereIn('student_id',$fbIDs)->get();
+        $section = Section::find($section_id);
+        $subject = Subject::find($subject_id);
+        foreach($fbID as $fbID){
+            $botman->say("Hello👋! Your instructor in section $section->section and subject $subject->subject give an announcement. Please click the Announcement in menu to view announcement.",$fbID->facebook_id, FacebookDriver::class);
+        }
+        // dd($fbID);
         return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
     }
     public function viewEditAnnouncement($id){
