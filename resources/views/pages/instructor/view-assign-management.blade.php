@@ -6,13 +6,15 @@
       <section class="content">
         <div class="row">
           <div class="col-12">
-              <form method="GET" action="{{url('/testoriginate')}}"></form>
-              <div class="box">
-                  <div class="box-body">
-                      <input type="text">
-                      <button type="submit" class="btn btn-primary text-white">Submit</button>
-                  </div>
-              </div>
+              <form method="GET" action="{{url('/testoriginate')}}">
+                <div class="box">
+                    <div class="box-body">
+                        <input type="text">
+                        <button type="submit" class="btn btn-primary text-white">Submit</button>
+                    </div>
+                </div>
+            </form>
+              
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Assign Section to Subject</h3>
