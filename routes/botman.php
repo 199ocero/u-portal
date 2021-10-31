@@ -104,5 +104,5 @@ $dialogflow = DialogFlowV2::create()->listenForAction();
 $botman->middleware->received($dialogflow);
 
 $botman->hears('input.welcome', function ($bot) {
-    $bot->reply('a reply');
+    $bot->reply('Hello Jay-Are');
 });
