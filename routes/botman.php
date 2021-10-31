@@ -7,11 +7,10 @@ use App\Models\Announcement;
 use App\Models\StudentSection;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BotManController;
-use BotMan\BotMan\Middleware\Dialogflow;
+use Dialogflow2\DialogFlowV2;
 
 $botman = resolve('botman');
-$dialogflow = Dialogflow::create('112993177356571500898')->listenForAction();
-$botman->middleware->received($dialogflow);
+
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
@@ -104,10 +103,12 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
+$dialogflow = DialogFlowV2::create()->listenForAction();
+$botman->middleware->received($dialogflow);
+
 
 //Dialogflow
 $botman->hears('input.welcome', function ($bot) {
     $extras = $bot->getMessage()->getExtras();
-    $message = $extras['apiParameters']['text'];
-    $bot->reply("Hello: $message");
+    $bot->reply("Hello Jay-Are");
 })->middleware($dialogflow);
