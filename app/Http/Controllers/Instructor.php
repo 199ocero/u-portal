@@ -283,8 +283,7 @@ class Instructor extends Controller
     public function viewAddPageAnnouncement($section_id,$subject_id){
         $section_id = $section_id;
         $subject_id = $subject_id;
-        $botman = app('botman'); // <- this is important too...
-        $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
+        
         return view('pages.instructor.announcement.create-announcement',compact('section_id','subject_id'));
     }
     public function viewAddAnnouncement(Request $request,$section_id,$subject_id){
@@ -304,7 +303,12 @@ class Instructor extends Controller
         $announcement->resources = $request->resources;
         $announcement->save();
 
-        return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
+        // $botman = app('botman');
+        // $botman->say('Hello there!',3635465636550195, FacebookDriver::class);
+
+        $announce = Announcement::find($announcement->id);
+        
+        // return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
     }
     public function viewEditAnnouncement($id){
         $announcement = Announcement::find($id);

@@ -25,7 +25,6 @@ Route::get('/', function () {
 });
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
-Route::get('/testoriginate', 'BotManController@testOriginate');
 
 Auth::routes();
 

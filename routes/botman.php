@@ -7,6 +7,7 @@ use App\Models\Announcement;
 use App\Models\StudentSection;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BotManController;
+use App\Models\InstructorSectionSubject;
 
 $botman = resolve('botman');
 
@@ -85,14 +86,21 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     }
     $anns = "";
     if(count($announcement->toArray())==0){
-        $bot->reply("No announcement. You are drop in all section and subject.");
+        $bot->reply("No announcement. You are either drop in all section/subject or did not register your Facebook ID.");
     }else{
+        $count=0;
         foreach($announcement as $announcement){
+            $instructor = InstructorSectionSubject::where('subject_id',$announcement->subject_id)
+            ->where('section_id',$announcement->section_id)->first();
+            $user = User::find($instructor->instructor_id);
+
+            $ins = $user->first_name.' '.$user->last_name;
             $date = $announcement->deadline->format('F j, Y');
             $time = $announcement->deadline->format('h:i A');
             $section = $announcement['section']['section'];
             $subject = $announcement['subject']['subject'];
-            $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+            $anns = "✅Status: $status[$count]\n✅Instructor: $ins\n✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
+            $count++;
         }
         
         $bot->reply("📝 Announcement Information 📝\n\n$anns");
