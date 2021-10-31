@@ -7,8 +7,11 @@ use App\Models\Announcement;
 use App\Models\StudentSection;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BotManController;
+use BotMan\BotMan\Middleware\Dialogflow;
 
 $botman = resolve('botman');
+$dialogflow = Dialogflow::create('AIzaSyC9NJjR2DV9g4N7Cep-6xFcy1TMQOtfdZo')->listenForAction();
+$botman->middleware->received($dialogflow);
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
@@ -102,5 +105,9 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
 });
 
 
-
-$botman->hears('Start conversation', BotManController::class.'@startConversation');
+//Dialogflow
+$botman->hears('input.welcome', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $message = $extras['apiParameters']['text'];
+    $bot->reply("Hello: $message");
+})->middleware($dialogflow);
