@@ -3,11 +3,21 @@ use App\Models\Drop;
 use App\Models\User;
 use App\Models\Facebook;
 use App\Models\Irregular;
+use BotMan\BotMan\BotMan;
 use App\Models\Announcement;
 use Dialogflow2\DialogFlowV2;
 use App\Models\StudentSection;
+use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
+
+$wit = Wit::create('6IPH7GM2WKLQQPWTBZ5UXKNKZG7WYKHX');
+$botman->middleware->received($wit);
+
+$botman->hears('wit_what_is_ustp', function (BotMan $bot) {
+    // $extras = $bot->getMessage()->getExtras();
+    $bot->reply('USTP is High!');
+})->middleware($wit);
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
