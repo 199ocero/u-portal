@@ -14,11 +14,10 @@ $botman = resolve('botman');
 $wit = Wit::create('6IPH7GM2WKLQQPWTBZ5UXKNKZG7WYKHX');
 $botman->middleware->received($wit);
 
-$botman->hears('wit/check_weather_condition', function ($bot) {
+$botman->hears('what_is_ustp', function ($bot) {
     // $extras = $bot->getMessage()->getExtras();
     $bot->reply('USTP is APP!');
 })->middleware($wit);
-$botman->listen();
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
