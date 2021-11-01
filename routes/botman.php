@@ -112,11 +112,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
 $botman->hears('FAQS_PAYLOAD', function ($bot) {
     $bot->reply("These are the commands related to frequently ask questions. We will continue to add more in the future.");
     $bot->reply("Note: Commands are case sensitive so watch out for misspelling.");
-    $bot->reply("⚙️Commands⚙️\n\n
-    - mission\n
-    - vision\n
-    - absences\n
-    - drop");
+    $bot->reply("⚙️Commands⚙️\n\n- mission\n- vision\n- absences\n- drop");
 });
 $botman->hears('drop', function ($bot) {
     $bot->reply("Drop it drop it low gear!!");
