@@ -110,9 +110,11 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-// $dialogflow = DialogFlowV2::create()->listenForAction();
-// $botman->middleware->received($dialogflow);
-
-// $botman->hears('input.welcome', function ($bot) {
-//     $bot->reply('Hello Jay-Are');
-// })->middleware($dialogflow);
+// $botman->fallback(function ($bot) {
+//     $bot->reply('Sorry, I can\'t understand this command. Please type "Commands" and hit send.');
+// });
+$botman->fallback(function (BotMan $bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $entities = $extras['entities'] ?? null;
+    $bot->reply("this is what you told me : " . print_r($bot->getMessage(), true) . ", " . print_r($entities, true));
+});
