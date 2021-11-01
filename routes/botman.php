@@ -16,7 +16,7 @@ $botman->middleware->received($wit);
 
 $botman->hears('what_is_ustp', function ($bot) {
     // $extras = $bot->getMessage()->getExtras();
-    $bot->reply('USTP is High!');
+    $bot->reply('USTP is APP!');
 })->middleware($wit);
 $botman->listen();
 
