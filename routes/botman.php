@@ -118,6 +118,9 @@ $botman->hears('FAQS_PAYLOAD', function ($bot) {
     - absences\n
     - drop");
 });
+$botman->hears('drop', function ($bot) {
+    $bot->reply("Drop it drop it low gear!!");
+});
 
 $botman->fallback(function ($bot) {
     $bot->reply('Sorry, I can\'t understand this command. Please click "FAQs" button to see the series of commands.');
