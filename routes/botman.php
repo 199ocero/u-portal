@@ -111,9 +111,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
 });
 
 $botman->fallback(function ($bot) {
-    $extras = $bot->getMessage()->getExtras();
-    $intents = $extras['intents'][0]['name'];
-    $bot->reply("Sorry, I can\'t understand this command. Please type 'Commands' and hit send. $intents");
+    $bot->reply('Sorry, I can\'t understand this command. Please type Commands and hit send.');
 });
 // $botman->fallback(function (BotMan $bot) {
 //     $extras = $bot->getMessage()->getExtras();
