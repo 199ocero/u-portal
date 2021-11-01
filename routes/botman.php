@@ -18,6 +18,7 @@ $botman->hears('what_is_ustp', function ($bot) {
     // $extras = $bot->getMessage()->getExtras();
     $bot->reply('USTP is High!');
 })->middleware($wit);
+$botman->listen();
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
