@@ -37,7 +37,7 @@ $botman->hears('PERSONAL_PAYLOAD', function ($bot) {
     $senderId = $bot->getUser()->getId();
     $facebookID = Facebook::where('facebook_id',$senderId)->first();
     $student = User::find($facebookID->student_id);
-    $bot->reply("📝 Student Information 📝\n\n▶️First Name: $student->first_name\n▶️Middle Name: $student->middle_name\n▶️Last Name: $student->middle_name\n📧Email: $student->email");
+    $bot->reply("📝Student Information📝\n\n▶️First Name: $student->first_name\n▶️Middle Name: $student->middle_name\n▶️Last Name: $student->middle_name\n📧Email: $student->email");
 });
 
 $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
@@ -105,9 +105,18 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
             $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
         }
         
-        $bot->reply("📝 Announcement Information 📝\n\n$anns");
+        $bot->reply("📝Announcement Information📝\n\n$anns");
     }
     
+});
+$botman->hears('FAQS_PAYLOAD', function ($bot) {
+    $bot->reply("These are the commands related to frequently ask questions. We will continue to add more in the future.");
+    $bot->reply("Note: Commands are case sensitive so watch out for misspelling.");
+    $bot->reply("⚙️Commands⚙️\n\n
+    - mission\n
+    - vision\n
+    - absences\n
+    - drop");
 });
 
 $botman->fallback(function ($bot) {
