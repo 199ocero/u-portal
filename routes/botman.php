@@ -11,7 +11,7 @@ use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
-$wit = Wit::create('FP5PEDRUWIKVZK5KBRN3IWBMPHJM4B2X');
+$wit = Wit::create('6IPH7GM2WKLQQPWTBZ5UXKNKZG7WYKHX');
 $botman->middleware->received($wit);
 
 $botman->hears('what_is_ustp', function ($bot) {
