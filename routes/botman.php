@@ -14,7 +14,7 @@ $botman = resolve('botman');
 $wit = Wit::create('FP5PEDRUWIKVZK5KBRN3IWBMPHJM4B2X');
 $botman->middleware->received($wit);
 
-$botman->hears('wit_what_is_ustp', function ($bot) {
+$botman->hears('what_is_ustp', function ($bot) {
     // $extras = $bot->getMessage()->getExtras();
     $bot->reply('USTP is High!');
 })->middleware($wit);
