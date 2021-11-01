@@ -110,11 +110,12 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     
 });
 
-// $botman->fallback(function ($bot) {
-//     $bot->reply('Sorry, I can\'t understand this command. Please type "Commands" and hit send.');
-// });
-$botman->fallback(function (BotMan $bot) {
+$botman->fallback(function ($bot) {
     $extras = $bot->getMessage()->getExtras();
-    $entities = $extras['entities'] ?? null;
-    $bot->reply("this is what you told me : " . print_r($bot->getMessage(), true) . ", " . print_r($entities, true));
+    $bot->reply('Sorry, I can\'t understand this command. Please type "Commands" and hit send.');
 });
+// $botman->fallback(function (BotMan $bot) {
+//     $extras = $bot->getMessage()->getExtras();
+//     // $entities = $extras['entities'] ?? null;
+//     $bot->reply("this is what you told me : " . print_r($bot->getMessage(), true) . ", " . print_r($entities, true));
+// });
