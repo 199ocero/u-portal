@@ -15,7 +15,8 @@
 	<link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">
 	  
 	<!-- Style-->  
-	<link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('backend/css/style.css')}}"> --}}
+	<link rel="stylesheet" href="https://res.cloudinary.com/dv4dyq4ca/raw/upload/v1635982104/style_pybnl1.css">
 	<link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   </head>
