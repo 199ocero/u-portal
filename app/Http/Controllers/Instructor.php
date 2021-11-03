@@ -304,39 +304,39 @@ class Instructor extends Controller
         $announcement->resources = $request->resources;
         $announcement->save();
 
-        $botman = app('botman');
+        // $botman = app('botman');
         
 
-        // $announce = Announcement::find($announcement->id);
+        // // $announce = Announcement::find($announcement->id);
 
         
-        $assign = InstructorSectionSubject::where('subject_id',$subject_id)->where('instructor_id',Auth::id())->where('section_id',$section_id)->first();
-        $studentSection = StudentSection::where('section_id',$assign->section_id)->get();
-        $student_id = [];
-        foreach($studentSection as $studentSection){
-            $student_id[]=$studentSection->student_id;
-        }
-        $drop = Drop::all();
-        $studentDrop_id = [];
-        foreach($drop as $drop){
-            $studentDrop_id[]=$drop->student_id;
-        }
-        $result = array_diff($student_id, $studentDrop_id);
-        $result = array_values($result);
-        $students = User::find($result);
-        $fbIDs = [];
-        foreach($students as $students){
-            // $fbID = Facebook::where('student_id',$students->id)->first();
-            $fbIDs[]=$students->id;
+        // $assign = InstructorSectionSubject::where('subject_id',$subject_id)->where('instructor_id',Auth::id())->where('section_id',$section_id)->first();
+        // $studentSection = StudentSection::where('section_id',$assign->section_id)->get();
+        // $student_id = [];
+        // foreach($studentSection as $studentSection){
+        //     $student_id[]=$studentSection->student_id;
+        // }
+        // $drop = Drop::all();
+        // $studentDrop_id = [];
+        // foreach($drop as $drop){
+        //     $studentDrop_id[]=$drop->student_id;
+        // }
+        // $result = array_diff($student_id, $studentDrop_id);
+        // $result = array_values($result);
+        // $students = User::find($result);
+        // $fbIDs = [];
+        // foreach($students as $students){
+        //     // $fbID = Facebook::where('student_id',$students->id)->first();
+        //     $fbIDs[]=$students->id;
             
-        }
+        // }
 
-        $fbID = Facebook::whereIn('student_id',$fbIDs)->get();
-        $section = Section::find($section_id);
-        $subject = Subject::find($subject_id);
-        foreach($fbID as $fbID){
-            $botman->say("Hello👋! Your instructor in section $section->section and subject $subject->subject give an announcement. Please click the Announcement in menu to view announcement.",$fbID->facebook_id, FacebookDriver::class);
-        }
+        // $fbID = Facebook::whereIn('student_id',$fbIDs)->get();
+        // $section = Section::find($section_id);
+        // $subject = Subject::find($subject_id);
+        // foreach($fbID as $fbID){
+        //     $botman->say("Hello👋! Your instructor in section $section->section and subject $subject->subject give an announcement. Please click the Announcement in menu to view announcement.",$fbID->facebook_id, FacebookDriver::class);
+        // }
         // dd($fbID);
         return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Added!');
     }
