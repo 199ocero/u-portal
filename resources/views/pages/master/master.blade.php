@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://res.cloudinary.com/dv4dyq4ca/image/upload/v1635990496/favicon_ktucjb.png" type="image/x-icon">
+    <link rel="icon" href="https://res.cloudinary.com/dv4dyq4ca/image/upload/v1635990496/favicon_ktucjb.png">
 
     <title>UPortal - Dashboard</title>
     
