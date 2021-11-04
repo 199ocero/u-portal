@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../images/favicon.ico">
+    <link rel="icon" href="https://res.cloudinary.com/dv4dyq4ca/image/upload/v1635991466/favicon_zpt328.png">
 
     <title>UPortal Panel - Recover Password</title>
   
@@ -38,7 +38,7 @@
 											<span class="input-group-text bg-transparent text-white"><i class="ti-email"></i></span>
 										</div>
 										{{-- <input type="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Your Email"> --}}
-										<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email">>
+										<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email">
 
 										@error('email')
 											<span class="invalid-feedback" role="alert">
