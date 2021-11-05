@@ -7,11 +7,12 @@ use App\Models\Drop;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Subject;
+use App\Models\Facebook;
 use App\Models\Irregular;
 use App\Models\Announcement;
-use App\Models\Facebook;
 use Illuminate\Http\Request;
 use App\Models\StudentSection;
+use App\Rules\MatchOldPassword;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -142,9 +143,16 @@ class Instructor extends Controller
 
         $result = array_diff($studentAdd, $studentIrregs);
         $assign = User::whereIn('id',$result)->get();
+        $section = StudentSection::whereIn('student_id',$result)->get();
+
+        $sectionName = array();
+        for($i=0;$i<count($section->toArray());$i++){
+            $name = Section::find($section[$i]['section_id']);
+            array_push($sectionName,$name->section);
+        }
         
-        // dd($assign);
-        return view('pages.instructor.create-student',compact('subjectID','sectionID','assign'));
+        // dd($sectionName);
+        return view('pages.instructor.create-student',compact('subjectID','sectionID','assign','sectionName'));
     }
     public function viewAddStudentSection(Request $request, $section_id,$subject_id){
         
@@ -402,8 +410,21 @@ class Instructor extends Controller
         $instructor->email = $request->email;
         $instructor->update();
 
-        return redirect()->route('view.profile')->with('success','Instructor Updated!');
+        return redirect()->route('view.profile')->with('success','Profile Updated!');
     }
-
+    public function viewPassword(){
+        return view('pages.instructor.password.view-password');
+    }
+    public function viewChangePassword(Request $request){
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'password' => ['required'],
+            'password_confirmation' => ['same:password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
+  
+        return back()->with('success', 'Password Changed!');
+    }
 
 }

@@ -21,11 +21,13 @@
                               <th scope="col">First Name</th>
                               <th scope="col">Middle Name</th>
                               <th scope="col">Last Name</th>
+                              <th scope="col">Section</th>
                               <th scope="col">Action</th>
                             </tr>
                           </thead>
                           <tbody>
                               @php($i=1)
+                              @php($x=0)
                               @foreach ($assign as $assign)
                                   <tr>
                                       <th scope="row">{{$i++}}</th>
@@ -33,6 +35,8 @@
                                       <td>{{$assign->first_name}}</td>
                                       <td>{{$assign->middle_name}}</td>
                                       <td>{{$assign->last_name}}</td>
+                                      <td>{{$sectionName[$x]}}</td>
+                                      @php($x++)
                                       <td>
                                           <a href="{{url('instructor/section/add-irregular/'.$sectionID.'/'.$subjectID.'/'.$assign->id)}}" data-toggle="tooltip" title="Add Irregular Student" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-plus"></i></a>
                                       </td>

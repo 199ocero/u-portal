@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Drop;
+use App\Models\User;
 use App\Models\Irregular;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\StudentSection;
+use App\Rules\MatchOldPassword;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\InstructorSectionSubject;
 
 class Student extends Controller
@@ -69,5 +73,53 @@ class Student extends Controller
     public function viewAnnouncementDetails($id){
         $announcement = Announcement::find($id);
         return view('pages.student.details-announcement',compact('announcement'));
+    }
+    //Profile
+    public function viewProfile(){
+        $user = User::find(Auth::id());
+        return view('pages.student.profile.view-profile',compact('user'));
+    }
+    public function viewEditProfile(){
+        $student = User::find(Auth::id());
+        return view('pages.student.profile.edit-profile',compact('student'));
+    }
+    public function viewUpdateProfile(Request $request){
+        $student = User::find(Auth::id());
+        
+        $validateData = $request->validate([
+            'first_name' => ['required', 'max:255'],
+            'middle_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'username' => [
+                'required',
+                Rule::unique('users')->ignore($student->id),
+            ],
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore($student->id),
+            ],
+        ]);
+        $student->username = $request->username;
+        $student->first_name = $request->first_name;
+        $student->middle_name = $request->middle_name;
+        $student->last_name = $request->last_name;
+        $student->email = $request->email;
+        $student->update();
+
+        return redirect()->route('view.profile')->with('success','Profile Updated!');
+    }
+    public function viewPassword(){
+        return view('pages.student.password.view-password');
+    }
+    public function viewChangePassword(Request $request){
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'password' => ['required'],
+            'password_confirmation' => ['same:password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
+  
+        return back()->with('success', 'Password Changed!');
     }
 }

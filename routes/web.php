@@ -128,6 +128,10 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
         Route::get('/profile/edit',[Instructor::class,'viewEditProfile'])->name('view.profile.edit');
         Route::post('/profile/update',[Instructor::class,'viewUpdateProfile'])->name('view.profile.update');
 
+        //Password
+        Route::get('/password/view',[Instructor::class,'viewPassword'])->name('view.password');
+        Route::post('/password/change',[Instructor::class,'viewChangePassword'])->name('view.password.change.instructor');
+
     });
 });
 
@@ -144,6 +148,15 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
         Route::get('/facebook/view/',[FacebookController::class,'viewFacebookID'])->name('view.facebook');
         Route::post('/facebook/add/',[FacebookController::class,'viewAddFacebookID'])->name('view.facebook.add');
         Route::post('/facebook/update/',[FacebookController::class,'viewUpdateFacebookID'])->name('view.facebook.update');
+
+        //Profile
+        Route::get('/profile/view',[Student::class,'viewProfile'])->name('view.profile');
+        Route::get('/profile/edit',[Student::class,'viewEditProfile'])->name('view.profile.edit');
+        Route::post('/profile/update',[Student::class,'viewUpdateProfile'])->name('view.profile.update');
+
+        //Password
+        Route::get('/password/view',[Student::class,'viewPassword'])->name('view.password');
+        Route::post('/password/change',[Student::class,'viewChangePassword'])->name('view.password.change');
     
     });
 });

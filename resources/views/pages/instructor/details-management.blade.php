@@ -22,6 +22,7 @@
                               <th scope="col">First Name</th>
                               <th scope="col">Middle Name</th>
                               <th scope="col">Last Name</th>
+                              <th scope="col">Email</th>
                               <th scope="col">Created</th>
                               <th scope="col">Status</th>
                               <th scope="col">Action</th>
@@ -37,6 +38,7 @@
                                     <td>{{$assign['student']['first_name']}}</td>
                                     <td>{{$assign['student']['middle_name']}}</td>
                                     <td>{{$assign['student']['last_name']}}</td>
+                                    <td>{{$assign['student']['email']}}</td>
                                     <td>{{$assign['student']['created_at']->format('m-d-Y')}}</td>
                                     @if($status[$x]=='Regular')
                                         <td><span class="badge badge-success">Regular</span></td>

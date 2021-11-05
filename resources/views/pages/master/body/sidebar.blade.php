@@ -8,13 +8,9 @@
 		
         <div class="user-profile">
 			<div class="ulogo">
-				 <a href="index.html">
-				  <!-- logo for regular state and mobile devices -->
-					 <div class="d-flex align-items-center justify-content-center">					 	
-						  <img src="{{asset('backend/images/logo-dark.png')}}" alt="">
-						  <h3><b>UPortal</b> Panel</h3>
-					 </div>
-				</a>
+        <div class="d-flex align-items-center justify-content-center">					 	
+          <img src="{{asset('backend/images/logo-dark.png')}}">
+       </div>
 			</div>
         </div>
       
@@ -39,7 +35,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('super/administrator/view')}}"><i class="ti-more"></i>View Admin</a></li>
+              <li class="{{(($prefix=='/super' && $route=='view.super.administrator')
+              ||($prefix=='/super' && $route=='view.super.edit.admin'))?'active':''}}"><a href="{{url('super/administrator/view')}}"><i class="ti-more"></i>View Admin</a></li>
             </ul>
           </li> 
         @endrole
@@ -60,7 +57,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('administrator/instructor/view')}}"><i class="ti-more"></i>View Instructor</a></li>
+              <li class="{{(($prefix == '/administrator' && $route=='view.administrator.instructor')||($prefix == '/administrator' && $route=='view.instructor.add')||($prefix == '/administrator' && $route=='view.edit.instructor'))?'active':''}}"><a href="{{url('administrator/instructor/view')}}"><i class="ti-more"></i>View Instructor</a></li>
             </ul>
           </li>
           <li class="header nav-small-cap">Section Management</li>
@@ -74,7 +71,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('administrator/section/view')}}"><i class="ti-more"></i>View Section</a></li>
+              <li class="{{(($prefix == '/administrator' && $route=='view.administrator.section')||($prefix == '/administrator' && $route=='view.details.section')||($prefix == '/administrator' && $route=='view.edit.section')
+              ||($prefix == '/administrator' && $route=='view.student.section')||($prefix == '/administrator' && $route=='view.student.edit.section'))?'active':''}}"><a href="{{url('administrator/section/view')}}"><i class="ti-more"></i>View Section</a></li>
             </ul>
           </li>
           <li class="header nav-small-cap">Subject Management</li>
@@ -89,7 +87,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('administrator/subject/view')}}"><i class="ti-more"></i>View Subject</a></li>
+              <li class="{{(($prefix == '/administrator' && $route=='view.administrator.subject')
+              ||($prefix == '/administrator' && $route=='view.edit.subject')
+              ||($prefix == '/administrator' && $route=='view.add.view.subject'))?'active':''}}"><a href="{{url('administrator/subject/view')}}"><i class="ti-more"></i>View Subject</a></li>
             </ul>
           </li>    
         @endrole
@@ -111,8 +111,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('instructor/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
-              <li><a href=""><i class="ti-more"></i>Change Password</a></li>
+              <li class="{{(($prefix == '/instructor' && $route=='view.profile')
+              ||($prefix == '/instructor' && $route=='view.profile.edit'))?'active':''}}"><a href="{{url('instructor/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li class="{{(($prefix == '/instructor' && $route=='view.password'))?'active':''}}"><a href="{{url('instructor/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
             </ul>
           </li> 
           <li class="header nav-small-cap">Assign Management</li>
@@ -129,7 +130,11 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('instructor/assign/section-subject/view')}}"><i class="ti-more"></i>View Assign</a></li>
+              <li class="{{(($prefix == '/instructor' && $route=='view.instructor.section.subject')
+              ||($prefix == '/instructor' && $route=='view.details.instructor.section.subject')
+              ||($prefix == '/instructor' && $route=='view.instructor.student.section')
+              ||($prefix == '/instructor' && $route=='view.announcement')
+              ||($prefix == '/instructor' && $route=='view.add.page.announcement'))?'active':''}}"><a href="{{url('instructor/assign/section-subject/view')}}"><i class="ti-more"></i>View Assign</a></li>
             </ul>
           </li>  
         @endrole
@@ -140,6 +145,22 @@
                 <span>Dashboard</span>
             </a>
           </li>
+          <li class="header nav-small-cap">Profile Management</li>
+          <li class="treeview {{(($prefix == '/student' && $route=='view.profile')
+          ||($prefix == '/student' && $route=='view.profile.edit'))?'active':''}}">
+            <a href="#">
+              <i data-feather="user"></i>
+              <span>Profile</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{(($prefix == '/student' && $route=='view.profile')
+              ||($prefix == '/student' && $route=='view.profile.edit'))?'active':''}}"><a href="{{url('student/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li class="{{(($prefix == '/student' && $route=='view.password'))?'active':''}}"><a href="{{url('student/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
+            </ul>
+          </li> 
           <li class="header nav-small-cap">Announcement Management</li>
           <li class="treeview {{(($prefix == '/student' && $route=='view.announcement')
           ||($prefix == '/student' && $route=='view.announcement.details'))?'active':''}}">
@@ -151,7 +172,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('student/announcement/view/')}}"><i class="ti-more"></i>View Announcement</a></li>
+              <li class="{{(($prefix == '/student' && $route=='view.announcement')
+              ||($prefix == '/student' && $route=='view.announcement.details'))?'active':''}}"><a href="{{url('student/announcement/view/')}}"><i class="ti-more"></i>View Announcement</a></li>
             </ul>
           </li>
           <li class="header nav-small-cap">Facebook Management</li>
@@ -164,7 +186,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('student/facebook/view/')}}"><i class="ti-more"></i>View Facebook ID</a></li>
+              <li class="{{(($prefix == '/student' && $route=='view.facebook'))?'active':''}}"><a href="{{url('student/facebook/view/')}}"><i class="ti-more"></i>View Facebook ID</a></li>
             </ul>
           </li>    
         @endrole    
