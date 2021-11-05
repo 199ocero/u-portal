@@ -123,7 +123,11 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
         Route::get('/announcement/delete/{section_id}/{subject_id}/{id}',[Instructor::class,'viewDeleteAnnouncement'])->name('view.delete.announcement');
     
         
-        Route::post('/announcement/send',[BotManController::class,'viewSend'])->name('view.send.announcement');
+        //Profile
+        Route::get('/profile/view',[Instructor::class,'viewProfile'])->name('view.profile');
+        Route::get('/profile/edit',[Instructor::class,'viewEditProfile'])->name('view.profile.edit');
+        Route::post('/profile/update',[Instructor::class,'viewUpdateProfile'])->name('view.profile.update');
+
     });
 });
 

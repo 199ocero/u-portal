@@ -113,31 +113,37 @@ class Instructor extends Controller
     public function viewAddPageStudentSection($section_id,$subject_id){
         $subjectID = $subject_id;
         $sectionID = $section_id;
-        $assign = User::whereRoleIs('student')->get();
-        $studentSection = StudentSection::where('section_id',$section_id)->get();
 
-        $assigns = $assign->toArray();
-        $studentSections = $studentSection->toArray();
-        $studentRemove = array();
+        $instructorSectionSubject = InstructorSectionSubject::where('subject_id',$subject_id)->where('instructor_id',Auth::id())->get();
+        $sectionRemove = array();
 
-
-        for($i=0;$i<count($studentSections);$i++){
-            for($x=0;$x<count($assigns);$x++){
-                if($assigns[$x]['id']==$studentSection[$i]['student_id']){
-                    // array_push($studentRemove,$studentSection[$i]['student_id']);
-                    $assign->forget($x);
-                    break;
-                }
-            }
-            
-            
+        for($i=0;$i<count($instructorSectionSubject->toArray());$i++){
+            array_push($sectionRemove,$instructorSectionSubject[$i]['section_id']);
         }
-        
-        $assign=$assign->values();
-        
-        
 
-        // dd($assign->toArray());
+        $drop = Drop::where('subject_id',$subject_id)->where('section_id',$section_id)->get();
+
+        $studentDrop = array();
+        for($i=0;$i<count($drop->toArray());$i++){
+            array_push($studentDrop,$drop[$i]['student_id']);
+        }
+        $studentSection = StudentSection::whereNotIn('section_id',$sectionRemove)->whereNotIn('student_id',$studentDrop)->get();
+
+        $studentAdd = array();
+        for($i=0;$i<count($studentSection->toArray());$i++){
+            array_push($studentAdd,$studentSection[$i]['student_id']);
+        }
+        $irreg = Irregular::where('subject_id',$subject_id)->where('instructor_id',Auth::id())->get();
+        $studentIrregs = array();
+
+        for($i=0;$i<count($irreg->toArray());$i++){
+            array_push($studentIrregs,$irreg[$i]['student_id']);
+        }
+
+        $result = array_diff($studentAdd, $studentIrregs);
+        $assign = User::whereIn('id',$result)->get();
+        
+        // dd($assign);
         return view('pages.instructor.create-student',compact('subjectID','sectionID','assign'));
     }
     public function viewAddStudentSection(Request $request, $section_id,$subject_id){
@@ -256,12 +262,10 @@ class Instructor extends Controller
         $student = Irregular::where('section_id',$section_id)->get()->toArray();
 
         for($i=0;$i<count($student);$i++){
-            
-            User::find($student[$i]['student_id'])->delete();
             Irregular::where('student_id',$student[$i]['student_id'])->delete();
-            StudentSection::where('student_id',$student[$i]['student_id'])->delete();
+            StudentSection::where('student_id',$student[$i]['student_id'])->where('section_id',$student[$i]['section_id'])->delete();
         }
-        return redirect()->route('view.instructor.section.subject')->with('success','Assign Deleted Successfully!');
+        return redirect()->route('view.instructor.section.subject')->with('success','Assign Deleted!');
     }
 
     public function viewRemoveIrregStudent($student_id,$section_id,$subject_id){
@@ -364,6 +368,41 @@ class Instructor extends Controller
     public function viewDeleteAnnouncement($section_id,$subject_id,$id){
         Announcement::find($id)->delete();
         return redirect()->to('instructor/announcement/view/'.$section_id.'/'.$subject_id)->with('success','Announcement Deleted!');
+    }
+
+    //Profile
+    public function viewProfile(){
+        $user = User::find(Auth::id());
+        return view('pages.instructor.profile.view-profile',compact('user'));
+    }
+    public function viewEditProfile(){
+        $instructor = User::find(Auth::id());
+        return view('pages.instructor.profile.edit-profile',compact('instructor'));
+    }
+    public function viewUpdateProfile(Request $request){
+        $instructor = User::find(Auth::id());
+        
+        $validateData = $request->validate([
+            'first_name' => ['required', 'max:255'],
+            'middle_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'username' => [
+                'required',
+                Rule::unique('users')->ignore($instructor->id),
+            ],
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore($instructor->id),
+            ],
+        ]);
+        $instructor->username = $request->username;
+        $instructor->first_name = $request->first_name;
+        $instructor->middle_name = $request->middle_name;
+        $instructor->last_name = $request->last_name;
+        $instructor->email = $request->email;
+        $instructor->update();
+
+        return redirect()->route('view.profile')->with('success','Instructor Updated!');
     }
 
 

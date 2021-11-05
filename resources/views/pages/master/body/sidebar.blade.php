@@ -100,6 +100,21 @@
                 <span>Dashboard</span>
             </a>
           </li>
+          <li class="header nav-small-cap">Profile Management</li>
+          <li class="treeview {{(($prefix == '/instructor' && $route=='view.profile')
+          ||($prefix == '/instructor' && $route=='view.profile.edit'))?'active':''}}">
+            <a href="#">
+              <i data-feather="user"></i>
+              <span>Profile</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{url('instructor/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li><a href=""><i class="ti-more"></i>Change Password</a></li>
+            </ul>
+          </li> 
           <li class="header nav-small-cap">Assign Management</li>
           <li class="treeview {{(($prefix == '/instructor' && $route=='view.instructor.section.subject')
           ||($prefix == '/instructor' && $route=='view.details.instructor.section.subject')
