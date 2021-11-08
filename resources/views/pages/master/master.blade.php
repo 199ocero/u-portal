@@ -83,6 +83,13 @@
         $('button').attr('disabled',false);
         }
     });
+    $(document).ready(function(){
+        elem = document.getElementById("deadline")
+        var iso = new Date().toISOString();
+        var minDate = iso.substring(0,16);
+        // elem.value = minDate
+        elem.min = minDate
+    });
 </script>
 <script>
   $(document).ready(function(){

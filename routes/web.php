@@ -104,9 +104,6 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
         //CRUD-Student
         Route::get('/section/add/student/{section_id}/{subject_id}',[Instructor::class,'viewAddPageStudentSection'])->name('view.instructor.student.section');
         Route::post('/section/add-student/{section_id}/{subject_id}',[Instructor::class,'viewAddStudentSection'])->name('view.instructor.student.add.section');
-        // Route::get('/section/edit-student/{student_id}/{section_id}',[Instructor::class,'viewEditStudentSection'])->name('view.instructor.student.edit.section');
-        // Route::post('/section/update-student/{student_id}/{section_id}',[Instructor::class,'viewUpdateStudentSection'])->name('view.instructor.student.update.section');
-        // Route::get('/section/delete-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewDeleteStudentSection'])->name('view.instructor.student.delete.section');
         Route::get('/section/drop-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewDropStudentSection'])->name('view.instructor.student.drop.section');
         Route::get('/section/undrop-student/{student_id}/{section_id}/{subject_id}',[Instructor::class,'viewUndropStudentSection'])->name('view.instructor.student.undrop.section');
         Route::get('/section/add-irregular/{section_id}/{subject_id}/{id}',[Instructor::class,'viewAddIrregularStudentSection'])->name('view.instructor.student.add.irregular.section');
@@ -124,12 +121,12 @@ Route::group(['middleware' => ['auth', 'role:instructor']], function() {
     
         
         //Profile
-        Route::get('/profile/view',[Instructor::class,'viewProfile'])->name('view.profile');
-        Route::get('/profile/edit',[Instructor::class,'viewEditProfile'])->name('view.profile.edit');
-        Route::post('/profile/update',[Instructor::class,'viewUpdateProfile'])->name('view.profile.update');
+        Route::get('/profile/view',[Instructor::class,'viewProfile'])->name('view.profile.instructor');
+        Route::get('/profile/edit',[Instructor::class,'viewEditProfile'])->name('view.profile.edit.instructor');
+        Route::post('/profile/update',[Instructor::class,'viewUpdateProfile'])->name('view.profile.update.instructor');
 
         //Password
-        Route::get('/password/view',[Instructor::class,'viewPassword'])->name('view.password');
+        Route::get('/password/view',[Instructor::class,'viewPassword'])->name('view.password.instructor');
         Route::post('/password/change',[Instructor::class,'viewChangePassword'])->name('view.password.change.instructor');
 
     });
@@ -150,13 +147,17 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
         Route::post('/facebook/update/',[FacebookController::class,'viewUpdateFacebookID'])->name('view.facebook.update');
 
         //Profile
-        Route::get('/profile/view',[Student::class,'viewProfile'])->name('view.profile');
-        Route::get('/profile/edit',[Student::class,'viewEditProfile'])->name('view.profile.edit');
-        Route::post('/profile/update',[Student::class,'viewUpdateProfile'])->name('view.profile.update');
+        Route::get('/profile/view',[Student::class,'viewProfile'])->name('view.profile.student');
+        Route::get('/profile/edit',[Student::class,'viewEditProfile'])->name('view.profile.edit.student');
+        Route::post('/profile/update',[Student::class,'viewUpdateProfile'])->name('view.profile.update.student');
 
         //Password
-        Route::get('/password/view',[Student::class,'viewPassword'])->name('view.password');
-        Route::post('/password/change',[Student::class,'viewChangePassword'])->name('view.password.change');
+        Route::get('/password/view',[Student::class,'viewPassword'])->name('view.password.student');
+        Route::post('/password/change',[Student::class,'viewChangePassword'])->name('view.password.change.student');
+
+        //Activity Completion
+        Route::get('/activity/complete/{id}',[Student::class,'viewActComplete'])->name('view.activity.complete');
+        Route::get('/activity/incomplete/{id}',[Student::class,'viewActIncomplete'])->name('view.activity.incomplete');
     
     });
 });

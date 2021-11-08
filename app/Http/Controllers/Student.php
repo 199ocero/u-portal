@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Drop;
 use App\Models\User;
+use App\Models\Complete;
 use App\Models\Irregular;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
@@ -21,12 +22,11 @@ class Student extends Controller
         $drop = Drop::where('student_id',Auth::id())->get();
         $student = StudentSection::where('student_id',Auth::id())->get()->toArray();
         $irregular = Irregular::where('student_id',Auth::id())->get()->toArray();
-        $status = array();
+        $complete = Complete::where('student_id',Auth::id())->get()->toArray();
+        $type = array();
         $announcement= collect();
+        $status = array();
 
-
-        
-        // dd($drop->toArray());
         if(count($drop)!=0){
 
             $section_id = [];
@@ -40,14 +40,16 @@ class Student extends Controller
             for($i=0;$i<count($announcement);$i++){
                 for($y=0;$y<count($irregular);$y++){
                     if($irregular[$y]['section_id']==$announcement[0]['section_id'] && $irregular[$y]['subject_id']==$announcement[0]['subject_id']){
-                        array_push($status,'Irregular');
+                        array_push($type,'Irregular');
                         break;
                     }else{
-                        array_push($status,'Regular');
+                        array_push($type,'Regular');
                         break;
                     }
                 }
+
             }
+            
         }else{
             for($i=0;$i<count($student);$i++){
                 $announce = Announcement::where('section_id',$student[$i]['section_id'])->get();
@@ -57,18 +59,40 @@ class Student extends Controller
                     $announces = Announcement::where('section_id',$student[$i]['section_id'])->get()->toArray();
                     for($y=0;$y<count($irregular);$y++){
                         if($irregular[$y]['section_id']==$announces[0]['section_id'] && $irregular[$y]['subject_id']==$announces[0]['subject_id']){
-                            array_push($status,'Irregular');
+                            array_push($type,'Irregular');
                             break;
                         }else{
-                            array_push($status,'Regular');
+                            array_push($type,'Regular');
                             break;
                         }
+                    }
+                }
+                
+            }
+        }
+        if(count($complete)==0){
+            for($y=0;$y<count($announcement);$y++){
+                array_push($status,'Incomplete');
+            }
+        }else{
+            for($y=0;$y<count($announcement->toArray());$y++){
+                array_push($status,'Incomplete');
+            }
+            for($i=0;$i<count($announcement->toArray());$i++){
+            
+                for($y=0;$y<count($complete);$y++){
+                    if($complete[$y]['announcement_id']==$announcement[$i]['id']){
+                        // array_push($index,$i);
+                        $status[$i] = 'Complete';
+                        break;
                     }
                 }
             }
         }
         
-        return view('pages.student.view-announcement',compact('announcement','status'));
+       
+        
+        return view('pages.student.view-announcement',compact('announcement','type','status'));
     }
     public function viewAnnouncementDetails($id){
         $announcement = Announcement::find($id);
@@ -106,7 +130,7 @@ class Student extends Controller
         $student->email = $request->email;
         $student->update();
 
-        return redirect()->route('view.profile')->with('success','Profile Updated!');
+        return redirect()->route('view.profile.student')->with('success','Profile Updated!');
     }
     public function viewPassword(){
         return view('pages.student.password.view-password');
@@ -121,5 +145,16 @@ class Student extends Controller
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
   
         return back()->with('success', 'Password Changed!');
+    }
+    public function viewActComplete($id){
+        $complete = new Complete();
+        $complete->student_id = Auth::id();
+        $complete->announcement_id = $id;
+        $complete->save();
+        return redirect()->route('view.announcement')->with('success','Activity Completed!');
+    }
+    public function viewActIncomplete($id){
+        $complete = Complete::where('announcement_id',$id)->first()->delete();
+        return redirect()->route('view.announcement')->with('success','Activity Incompleted!');
     }
 }

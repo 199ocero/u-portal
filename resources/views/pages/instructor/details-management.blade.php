@@ -24,7 +24,7 @@
                               <th scope="col">Last Name</th>
                               <th scope="col">Email</th>
                               <th scope="col">Created</th>
-                              <th scope="col">Status</th>
+                              <th scope="col">Type</th>
                               <th scope="col">Action</th>
                             </tr>
                           </thead>
@@ -44,8 +44,7 @@
                                         <td><span class="badge badge-success">Regular</span></td>
                                         <td>
                                             <a href="{{url('instructor/section/drop-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" data-toggle="tooltip" title="Drop Student" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-menu-down"></i></a>
-                                            {{-- <a href="{{url('instructor/section/edit-student/'.$assign['student']['id'].'/'.$section->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                            <a href="{{url('instructor/section/delete-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a> --}}
+                                            
                                         </td>
                                         @php($x++)
                                     @elseif($status[$x]=='Drop')
@@ -53,8 +52,7 @@
                                         <td>
                                             <a href="{{url('instructor/section/undrop-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" data-toggle="tooltip" title="Add Student" class="btn btn-circle btn-success text-white"><i class ="
                                                 glyphicon glyphicon-menu-up"></i></a>
-                                            {{-- <a href="{{url('instructor/section/edit-student/'.$assign['student']['id'].'/'.$section->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                            <a href="{{url('instructor/section/delete-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a> --}}
+                                            
                                         </td>
                                         @php($x++)
                                     @else
@@ -63,8 +61,7 @@
                                         <td>
                                             <a href="{{url('instructor/section/remove-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" data-toggle="tooltip" title="Remove Irregular Student" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-remove"></i></a>
                                             <a href="{{url('instructor/section/drop-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" data-toggle="tooltip" title="Drop Student" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-menu-down"></i></a>
-                                            {{-- <a href="{{url('instructor/section/edit-student/'.$assign['student']['id'].'/'.$section->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                            <a href="{{url('instructor/section/delete-student/'.$assign['student']['id'].'/'.$section->id.'/'.$subject->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a> --}}
+                                            
                                         </td>
                                         @php($x++)
                                     @endif

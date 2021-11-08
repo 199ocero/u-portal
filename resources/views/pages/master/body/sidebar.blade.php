@@ -111,9 +111,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix == '/instructor' && $route=='view.profile')
-              ||($prefix == '/instructor' && $route=='view.profile.edit'))?'active':''}}"><a href="{{url('instructor/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
-              <li class="{{(($prefix == '/instructor' && $route=='view.password'))?'active':''}}"><a href="{{url('instructor/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
+              <li class="{{(($prefix == '/instructor' && $route=='view.profile.instructor')
+              ||($prefix == '/instructor' && $route=='view.profile.edit.instructor'))?'active':''}}"><a href="{{url('instructor/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li class="{{(($prefix == '/instructor' && $route=='view.password.instructor'))?'active':''}}"><a href="{{url('instructor/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
             </ul>
           </li> 
           <li class="header nav-small-cap">Assign Management</li>
@@ -156,9 +156,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix == '/student' && $route=='view.profile')
-              ||($prefix == '/student' && $route=='view.profile.edit'))?'active':''}}"><a href="{{url('student/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
-              <li class="{{(($prefix == '/student' && $route=='view.password'))?'active':''}}"><a href="{{url('student/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
+              <li class="{{(($prefix == '/student' && $route=='view.profile.student')
+              ||($prefix == '/student' && $route=='view.profile.edit.student'))?'active':''}}"><a href="{{url('student/profile/view')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li class="{{(($prefix == '/student' && $route=='view.password.student'))?'active':''}}"><a href="{{url('student/password/view')}}"><i class="ti-more"></i>Change Password</a></li>
             </ul>
           </li> 
           <li class="header nav-small-cap">Announcement Management</li>

@@ -11,7 +11,7 @@
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header bg-black">
                       <h5>User Type: Instructor</h5>
-                      <a href="{{route('view.profile.edit')}}" class="btn btn-primary float-right"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a>
+                      <a href="{{route('view.profile.edit.instructor')}}" class="btn btn-primary float-right"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a>
                     </div>
                     <div class="widget-user-image">
                       <img class="rounded-circle" src="{{asset('backend/images/user3-128x128.jpg')}}" alt="User Avatar">

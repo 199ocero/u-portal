@@ -22,6 +22,7 @@
                               <th scope="col">Activity Title</th>
                               <th scope="col">Section</th>
                               <th scope="col">Subject</th>
+                              <th scope="col">Type</th>
                               <th scope="col">Status</th>
                               <th scope="col">Action</th>
                             </tr>
@@ -29,6 +30,7 @@
                           <tbody>
                               @php($i=1)
                               @php($x=0)
+                              @php($y=0)
                               @foreach ($announcement as $announcement)
                                   <tr>
                                       <th scope="row">{{$i++}}</th>
@@ -37,18 +39,31 @@
                                       <td>{{$announcement->act_title}}</td>
                                       <td>{{$announcement['section']['section']}}</td>
                                       <td>{{$announcement['subject']['subject']}}</td>
-                                      @if(count($status)==0)
+                                      @if(count($type)==0)
                                           <td><span class="badge badge-success">Regular</span></td>
-                                      @elseif ($status[$x]=='Irregular')
+                                      @elseif ($type[$x]=='Irregular')
                                           <td><span class="badge badge-info">Irregular</span></td>
                                           @php($x++)
                                       @else
                                           <td><span class="badge badge-success">Regular</span></td>
                                           @php($x++)
                                       @endif
-                                      <td>
-                                        <a href="{{url('student/announcement/details/'.$announcement->id)}}" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a> 
-                                      </td>
+                                      @if($status[$y]=='Complete')
+                                        <td><span class="badge badge-success">Complete</span></td>
+                                        <td>
+                                          <a href="{{url('student/announcement/details/'.$announcement->id)}}" data-toggle="tooltip" title="View Details" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a> 
+                                          <a href="{{url('student/activity/incomplete/'.$announcement->id)}}" data-toggle="tooltip" title="Incomplete Activity" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-remove"></i></a> 
+                                        </td>
+                                        @php($y++)
+                                      @else
+                                        <td><span class="badge badge-danger">Incomplete</span></td>
+                                        <td>
+                                          <a href="{{url('student/announcement/details/'.$announcement->id)}}" data-toggle="tooltip" title="View Details" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a> 
+                                          <a href="{{url('student/activity/complete/'.$announcement->id)}}" data-toggle="tooltip" title="Complete Activity" class="btn btn-circle btn-success text-white"><i class ="glyphicon glyphicon-check"></i></a> 
+                                        </td>
+                                        @php($y++)
+                                      @endif
+                                      
                                   </tr>
                               @endforeach
                             

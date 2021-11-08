@@ -11,7 +11,7 @@
                     <h4 class="box-title">Change Password</h4>
                   </div>
                   <!-- /.box-header -->
-                  <form method="POST" action="{{ route('view.password.change') }}">
+                  <form method="POST" action="{{ route('view.password.change.student') }}">
                     @csrf
 
                       <div class="box-body">

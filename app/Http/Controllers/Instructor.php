@@ -410,7 +410,7 @@ class Instructor extends Controller
         $instructor->email = $request->email;
         $instructor->update();
 
-        return redirect()->route('view.profile')->with('success','Profile Updated!');
+        return redirect()->route('view.profile.instructor')->with('success','Profile Updated!');
     }
     public function viewPassword(){
         return view('pages.instructor.password.view-password');

@@ -11,7 +11,7 @@
                     <h4 class="box-title">Instructor Credentials</h4>
                   </div>
                   <!-- /.box-header -->
-                  <form method="POST" action="{{route('view.profile.update')}}">
+                  <form method="POST" action="{{route('view.profile.update.instructor')}}">
                       @csrf
                       <input type="hidden" id="role_id" class="role_id form-control" type="text" name="role_id" value="instructor"/>
                       <div class="box-body">
@@ -67,7 +67,7 @@
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer text-right">
-                          <a href="{{route('view.profile')}}" class="btn btn-rounded btn-danger btn-outline mr-1">
+                          <a href="{{route('view.profile.instructor')}}" class="btn btn-rounded btn-danger btn-outline mr-1">
                             <i class="ti-trash"></i> Cancel
                           </a>
                           <button type="submit" class="btn btn-rounded btn-primary btn-outline">
