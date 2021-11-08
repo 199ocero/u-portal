@@ -41,7 +41,7 @@
                                     <td>{{$admin->created_at->format('m-d-Y')}}</td>
                                     <td style="white-space: nowrap;width:1%">
                                         <a href="{{url('super/administrator/edit/'.$admin->id)}}" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
-                                        <a href="{{url('super/administrator/delete/'.$admin->id)}}" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{{url('super/administrator/delete/'.$admin->id)}}" id="delete" class="btn btn-circle btn-danger text-white"><i class ="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
