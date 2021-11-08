@@ -10,6 +10,7 @@ use App\Models\Subject;
 use App\Models\Facebook;
 use App\Models\Irregular;
 use App\Models\Announcement;
+use App\Models\Complete;
 use Illuminate\Http\Request;
 use App\Models\StudentSection;
 use App\Rules\MatchOldPassword;
@@ -272,6 +273,7 @@ class Instructor extends Controller
         for($i=0;$i<count($student);$i++){
             Irregular::where('student_id',$student[$i]['student_id'])->delete();
             StudentSection::where('student_id',$student[$i]['student_id'])->where('section_id',$student[$i]['section_id'])->delete();
+            Complete::where('student_id',$student[$i]['student_id'])->delete();
         }
         return redirect()->route('view.instructor.section.subject')->with('success','Assign Deleted!');
     }
