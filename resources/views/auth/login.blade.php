@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://res.cloudinary.com/dv4dyq4ca/image/upload/v1635991466/favicon_zpt328.png">
+    <link rel="icon" href="{{asset('backend/images/favicon.png')}}">
 
     <title>UPortal Panel - Log in </title>
   
