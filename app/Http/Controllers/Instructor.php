@@ -281,8 +281,14 @@ class Instructor extends Controller
     public function viewRemoveIrregStudent($student_id,$section_id,$subject_id){
         Irregular::where('student_id',$student_id)->where('subject_id',$subject_id)->where('instructor_id',Auth::id())->where('section_id',$section_id)->delete();
         StudentSection::where('student_id',$student_id)->where('section_id',$section_id)->delete();
-        Complete::where('student_id',$student[$i]['student_id'])->delete();
+        
         $announcement = Announcement::where('section_id',$section_id)->where('subject_id',$subject_id)->get();
+        if(count($announcement)!=0){
+            for($i=0;$i<count($announcement);$i++){
+                Complete::where('announcement_id',$announcement[$i]['id'])->delete();
+            }
+        }
+        
         return redirect()->to('instructor/assign/section-subject/details/'.$section_id.'/'.$subject_id)->with('success','Irregular Remove!');
     }
 
