@@ -58,7 +58,7 @@
                           <div class="row">
                             <div class="col-md-6">
                               <label>Email</label>
-                              <input type="email" class="form-control" name="email" id="email" :value="old('email')" placeholder="Enter Email">
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
                               @error('email')
                                 <span class="text-danger">{{$message}}</span>
                               @enderror

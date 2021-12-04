@@ -42,7 +42,7 @@
                               </div>
                             </div>
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary text-white btn-block">Submit</button>
+                                <button type="submit" class="btn btn-primary text-white btn-block">Assign</button>
                             </div>   
                         </div>
                         

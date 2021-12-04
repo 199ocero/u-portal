@@ -18,7 +18,7 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
-                                <label>Current Passowrd</label>
+                                <label>Current Password</label>
                               <input id="current_password" type="password" class="form-control" name="current_password" placeholder="Enter Current Password">
                               @error('current_password')
                                   <span class="text-danger">{{$message}}</span>
