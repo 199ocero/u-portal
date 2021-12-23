@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/199ocero/u-portal">
-    <img src="images/uportal_logo.png" alt="Logo">
+    <img src="images/uportal_logo.png" alt="Logo" width="130" height="130">
   </a>
 
 <h3 align="center">project_title</h3>
