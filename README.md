@@ -5,7 +5,7 @@
     <img src="images/uportal_logo.png" alt="Logo" width="200" height="200">
   </a>
 
-<h3 align="center">UPortal</h3>
+<h3 align="justify">UPortal</h3>
 
   <p align="center">
     UPortal is a free access chatbot that can be use in Facebook and Messenger. The students that don't have enough money to buy load can use this chatbot to check announcements, activities, resources, grades, instructors, subjects, classrooms, and etc.
