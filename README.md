@@ -7,8 +7,8 @@
 
 <h3 align="center">UPortal</h3>
 
-  <p align="justify">
-    UPortal is a free access chatbot that can be use in Facebook and Messenger. The students that don't have enough money to buy load can use this chatbot to check announcements, activities, resources, grades, instructors, subjects, classrooms, and etc.
+  <p align="center">
+    Hussle free access to university portal.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
