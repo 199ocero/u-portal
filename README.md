@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="images/login_page.png" width="1920">
+<img src="images/login_page.png" style="max-width: 100%;">
 
 UPortal is a free access chatbot that can be use in Facebook and Messenger. The students that don't have enough money to buy load can use this chatbot to check announcements, activities, resources, grades, instructors, subjects, classrooms, and etc.
 
