@@ -49,7 +49,7 @@
 <summary>Student Portal</summary>
 <img src="images/student_portal.png" style="max-width: 100%;">
 
-UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from USTEP(USTP's school portal) and profile information. 
+UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from UPortal(school portal) and profile information. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -155,9 +155,12 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Developer: Jay-Are Ocero - 199ocero@gmail.com
+Project Manager: Shanon Jamlan - shan.jamlan1@gmail.com
+Tester: Jay-Ann Arquiza - jayannarquiza0824@gmail.com
+Tester: Ryza Sapitanan - iamryzamae@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/199ocero/u-portal](https://github.com/199ocero/u-portal)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
