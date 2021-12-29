@@ -156,8 +156,11 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Developer: Jay-Are Ocero - 199ocero@gmail.com
+<br>
 Project Manager: Shanon Jamlan - shan.jamlan1@gmail.com
+<br>
 Tester: Jay-Ann Arquiza - jayannarquiza0824@gmail.com
+<br>
 Tester: Ryza Sapitanan - iamryzamae@gmail.com
 
 Project Link: [https://github.com/199ocero/u-portal](https://github.com/199ocero/u-portal)
