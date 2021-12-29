@@ -170,7 +170,7 @@ Tester: Ryza Sapitanan - iamryzamae@gmail.com
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Engr. Al-monte Vince M. Calo]()
+* <strong>Engr. Al-monte Vince M. Calo</strong> - Department Chair of the College of Information Technology and Computing of the University of Science and Technology of Southern Philippines - Cagayan de Oro City Campus, for giving us the opportunity to pursue this study and in providing us invaluable guidance throughout this capstone project journey. It was a real honor and privilege to work under his direction. We are appreciative for what he has done for us.
 * []()
 * []()
 
