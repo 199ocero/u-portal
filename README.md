@@ -42,8 +42,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<p align="right">Login page</p>
 <img src="images/login_page.png" style="max-width: 100%;">
+<p align="right">Instructor Portal</p>
 <img src="images/instructor_portal.png" style="max-width: 100%;">
+<p align="right">Student Portal</p>
 <img src="images/student_portal.png" style="max-width: 100%;">
 
 UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from USTEP(USTP's school portal) and profile information. 
