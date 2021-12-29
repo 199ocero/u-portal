@@ -43,8 +43,9 @@
 ## About The Project
 
 <img src="images/login_page.png" style="max-width: 100%;">
+<img src="images/instructor_portal.png" style="max-width: 100%;">
 
-UPortal is a free access chatbot that can be use in Facebook and Messenger. The students that don't have enough money to buy load can use this chatbot to check announcements, activities, resources, grades, instructors, subjects, classrooms, and etc.
+UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from USTEP(USTP's school portal) and profile information. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
