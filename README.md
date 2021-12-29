@@ -87,9 +87,13 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    php artisan migrate
    ```
-3. Run Seeder
+4. Run Seeder
    ```sh
    php artisan db:seed
+   ```
+5. Run the project
+   ```sh
+   php artisan serve
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
