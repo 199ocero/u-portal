@@ -163,8 +163,6 @@ Tester: Jay-Ann Arquiza - jayannarquiza0824@gmail.com
 <br>
 Tester: Ryza Sapitanan - iamryzamae@gmail.com
 
-Project Link: [https://github.com/199ocero/u-portal](https://github.com/199ocero/u-portal)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -172,7 +170,7 @@ Project Link: [https://github.com/199ocero/u-portal](https://github.com/199ocero
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* [Engr. Al-monte Vince M. Calo]()
 * []()
 * []()
 
