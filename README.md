@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="images/uportal_logo.png" alt="Logo" width="200" height="200">
+    <img src="images/uportal_logo.png" style="max-width: 100%;">
 
 <h3 align="center">UPortal</h3>
 
