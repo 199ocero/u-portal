@@ -170,9 +170,15 @@ Tester: Ryza Sapitanan - iamryzamae@gmail.com
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* <strong>Engr. Al-monte Vince M. Calo</strong> - Department Chair of the College of Information Technology and Computing of the University of Science and Technology of Southern Philippines - Cagayan de Oro City Campus, for giving us the opportunity to pursue this study and in providing us invaluable guidance throughout this capstone project journey. It was a real honor and privilege to work under his direction. We are appreciative for what he has done for us.
-* []()
-* []()
+<strong>Engr. Al-monte Vince M. Calo</strong> - Department Chair of the College of Information Technology and Computing of the University of Science and Technology of Southern Philippines - Cagayan de Oro City Campus, for giving us the opportunity to pursue this study and in providing us invaluable guidance throughout this capstone project journey. It was a real honor and privilege to work under his direction. We are appreciative for what he has done for us.
+<br>
+<strong>Thesis Panels</strong> - We owe a deep sense of gratitude also to our thesis panelists who provided constructive feedback as well as suggestions and recommendations to help us better our research.
+<br>
+<strong>Parents</strong> - To our parents who never failed to give us their all in support and guidance with our everyday endeavors.
+<br>
+
+Without these people, it wouldn’t be possible for us to finish this paper and accomplish what we aspire to achieve. Thank you so much!
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
