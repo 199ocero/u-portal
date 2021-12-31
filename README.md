@@ -30,7 +30,6 @@ UPortal is a free access to university portal. The students that don't have enou
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Node.js](https://nodejs.org)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
