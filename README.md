@@ -9,9 +9,6 @@
     Hussle free access to university portal.
   </p>
 </div>
-<!-- ABOUT THE PROJECT -->
-### About The Project
-
 <summary>Login Page</summary>
 <img src="images/login_page.png" style="max-width: 100%;">
 <summary>Instructor Portal</summary>
