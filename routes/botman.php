@@ -11,13 +11,6 @@ use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
-$dialogflow = DialogflowV2::create()->listenForAction();
-$botman->middleware->received($dialogflow);
-
-$botman->hears('input.welcome', function ($bot) {
-    $bot->reply('a reply');
-});
-
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
