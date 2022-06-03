@@ -36,23 +36,37 @@ This is the instructions on setting up the project locally. To get a local copy 
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repository
+
    ```sh
    git clone https://github.com/199ocero/u-portal.git
    ```
-2. Migrate Database
+
+   <br>
+   Note: Please install xampp with a php version of 7.4+
+   <br>
+
+2. Update project via terminal
+   ```sh
+   Composer update
+   Composer install
+   ```
+   <br>
+      Run your xammp control panel and start the Apache and MySQL
+   <br>
+3. Migrate Database
    ```sh
    php artisan migrate
    ```
-3. Run Seeder
+4. Run Seeder
    ```sh
    php artisan db:seed
    ```
-4. Run the project
+5. Run the project
    ```sh
    php artisan serve
    ```
-5. Go to routes folder and select web.php and set true when creating superadmin and set false after create
+6. Go to routes folder and select web.php and set true when creating superadmin and set false after create
    ```sh
    Auth::routes(['register' => false]);
    ```
