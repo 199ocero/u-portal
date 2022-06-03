@@ -7,13 +7,7 @@ use BotMan\BotMan\BotMan;
 use App\Models\Announcement;
 use Dialogflow2\DialogFlowV2;
 use App\Models\StudentSection;
-
-$dialogflow = \BotMan\Middleware\DialogFlow\V2\DialogFlow::create('en');
-$botman->middleware->received($dialogflow);
-$botman->hears('smalltalk.(.*)', function ($bot) {
-    $extras = $bot->getMessage()->getExtras();
-    $bot->reply($extras['apiReply']);
-})->middleware($dialogflow);
+use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
