@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
-//set true when creating superadmin and set false after creat
+//set true when creating superadmin and set false after create
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
