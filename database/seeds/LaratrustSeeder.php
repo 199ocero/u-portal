@@ -16,13 +16,6 @@ class LaratrustSeeder extends Seeder
      */
     public function run()
     {
-        //create superadmin account
-        User::create([
-            'username' => 'superadmin',
-            'email' => 'superadmin@gmail.com',
-            'password' => Hash::make('super123'),
-        ]);
-
         $this->truncateLaratrustTables();
 
         $config = Config::get('laratrust_seeder.roles_structure');
