@@ -41,9 +41,8 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    git clone https://github.com/199ocero/u-portal.git
    ```
-
    <br>
-   Note: Please install xampp with a php version of 7.4+
+   <strong>Note: </strong>Please install xampp with a php version of 7.4+
    <br>
 
 2. Update project via terminal
