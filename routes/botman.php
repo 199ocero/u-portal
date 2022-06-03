@@ -7,7 +7,13 @@ use BotMan\BotMan\BotMan;
 use App\Models\Announcement;
 use Dialogflow2\DialogFlowV2;
 use App\Models\StudentSection;
-use BotMan\BotMan\Middleware\Wit;
+
+$dialogflow = \BotMan\Middleware\DialogFlow\V2\DialogFlow::create('en');
+$botman->middleware->received($dialogflow);
+$botman->hears('smalltalk.(.*)', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
 
 $botman = resolve('botman');
 
@@ -41,8 +47,6 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     $status = array();
     $announcement= collect();
 
-
-    
     // dd($drop->toArray());
     if(count($drop)!=0){
 
@@ -101,20 +105,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     }
     
 });
-$botman->hears('FAQS_PAYLOAD', function ($bot) {
-    $bot->reply("These are the commands related to frequently ask questions. We will continue to add more in the future.");
-    $bot->reply("Note: Commands are case sensitive so watch out for misspelling.");
-    $bot->reply("⚙️Commands⚙️\n\n- mission\n- vision\n- absences\n- drop");
-});
-$botman->hears('drop', function ($bot) {
-    $bot->reply("Drop it drop it low gear!!");
-});
 
 $botman->fallback(function ($bot) {
     $bot->reply('Sorry, I can\'t understand this command. Please click "FAQs" button to see the series of commands.');
 });
-// $botman->fallback(function (BotMan $bot) {
-//     $extras = $bot->getMessage()->getExtras();
-//     // $entities = $extras['entities'] ?? null;
-//     $bot->reply("this is what you told me : " . print_r($bot->getMessage(), true) . ", " . print_r($entities, true));
-// });
