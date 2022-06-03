@@ -11,12 +11,12 @@ use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
-$dialogflow = \BotMan\Middleware\DialogFlow\V2\DialogFlow::create('en');
+$dialogflow = DialogflowV2::create()->listenForAction();
 $botman->middleware->received($dialogflow);
-$botman->hears('smalltalk.(.*)', function ($bot) {
-    $extras = $bot->getMessage()->getExtras();
-    $bot->reply($extras['apiReply']);
-})->middleware($dialogflow);
+
+$botman->hears('input.welcome', function ($bot) {
+    $bot->reply('a reply');
+});
 
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
