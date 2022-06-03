@@ -11,14 +11,6 @@ use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
-$wit = Wit::create('6IPH7GM2WKLQQPWTBZ5UXKNKZG7WYKHX');
-$botman->middleware->received($wit);
-
-$botman->hears('what_is_ustp', function ($bot) {
-    // $extras = $bot->getMessage()->getExtras();
-    $bot->reply('USTP is APP!');
-})->middleware($wit);
-
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
