@@ -52,9 +52,8 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    php artisan serve
    ```
-5. Go to routes folder and select web.php
+5. Go to routes folder and select web.php and set true when creating superadmin and set false after create
    ```sh
-   //set true when creating superadmin and set false after create
    Auth::routes(['register' => false]);
    ```
 
