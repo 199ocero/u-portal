@@ -11,6 +11,13 @@ use BotMan\BotMan\Middleware\Wit;
 
 $botman = resolve('botman');
 
+$dialogflow = \BotMan\Middleware\DialogFlow\V2\DialogFlow::create('en');
+$botman->middleware->received($dialogflow);
+$botman->hears('smalltalk.(.*)', function ($bot) {
+    $extras = $bot->getMessage()->getExtras();
+    $bot->reply($extras['apiReply']);
+})->middleware($dialogflow);
+
 $botman->hears('GET_STARTED', function ($bot) {
     $firstName = $bot->getUser()->getFirstName();
     $senderId = $bot->getUser()->getId();
