@@ -9,9 +9,6 @@
     Hussle free access to university portal.
   </p>
 </div>
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
 <summary>Login Page</summary>
 <img src="images/login_page.png" style="max-width: 100%;">
 <summary>Instructor Portal</summary>
@@ -47,22 +44,23 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    git clone https://github.com/199ocero/u-portal.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   npm run dev
-   ```
-3. Migrate Database
+2. Migrate Database
    ```sh
    php artisan migrate
    ```
-4. Run Seeder
+3. Run Seeder
    ```sh
    php artisan db:seed
    ```
-5. Run the project
+4. Run the project
    ```sh
    php artisan serve
+   ```
+5. Open database and go to 'role_user' table and insert the superadmin account
+   ```sh
+   role_id = superadmin or 1
+   user_id = the id of the superadmin in users table
+   
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
