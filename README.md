@@ -61,6 +61,12 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    php artisan serve
    ```
+6. Open database and go to 'role_user' table and insert the superadmin account
+   ```sh
+   role_id = superadmin or 1
+   user_id = the id if the superadmin in users table
+   
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
