@@ -16,24 +16,20 @@
 <summary>Student Portal</summary>
 <img src="images/student_portal.png" style="max-width: 100%;">
 
-UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from UPortal(school portal) and profile information. 
+UPortal is a free access to university portal. The students that don't have enough money to buy load can use this chatbot to check announcements from UPortal(school portal) and profile information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
+- [Laravel](https://laravel.com)
+- [Bootstrap](https://getbootstrap.com)
+- [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 This is the instructions on setting up the project locally. To get a local copy up and running follow these simple example steps.
@@ -56,16 +52,13 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    php artisan serve
    ```
-5. Open database and go to 'role_user' table and insert the superadmin account
+5. Go to routes folder and select web.php
    ```sh
-   role_id = superadmin or 1
-   user_id = the id of the superadmin in users table
-   
+   //set true when creating superadmin and set false after create
+   Auth::routes(['register' => false]);
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 <!-- ## Usage -->
@@ -75,8 +68,6 @@ This is the instructions on setting up the project locally. To get a local copy 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 <!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
-
-
 
 <!-- ROADMAP -->
 <!-- ## Roadmap -->
@@ -89,8 +80,6 @@ This is the instructions on setting up the project locally. To get a local copy 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p> -->
-
-
 
 <!-- CONTRIBUTING -->
 <!-- ## Contributing -->
@@ -108,8 +97,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p> -->
 
-
-
 <!-- LICENSE -->
 <!-- ## License -->
 
@@ -117,9 +104,8 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p> -->
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Developer: Jay-Are Ocero - 199ocero@gmail.com
@@ -132,9 +118,8 @@ Tester: Ryza Sapitanan - iamryzamae@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 <p align="justify"><strong>Engr. Al-monte Vince M. Calo</strong> - Department Chair of the College of Information Technology and Computing of the University of Science and Technology of Southern Philippines - Cagayan de Oro City Campus, for giving us the opportunity to pursue this study and in providing us invaluable guidance throughout this capstone project journey. It was a real honor and privilege to work under his direction. We are appreciative for what he has done for us.</p>
@@ -147,13 +132,11 @@ Tester: Ryza Sapitanan - iamryzamae@gmail.com
 
 Without these people, it wouldn’t be possible for us to finish this paper and accomplish what we aspire to achieve. Thank you so much!
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
