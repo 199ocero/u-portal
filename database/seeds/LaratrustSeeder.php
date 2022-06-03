@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
 
 class LaratrustSeeder extends Seeder
 {
@@ -14,6 +16,13 @@ class LaratrustSeeder extends Seeder
      */
     public function run()
     {
+        //create superadmin account
+        User::create([
+            'username' => 'superadmin',
+            'email' => 'superadmin@gmail.com',
+            'password' => Hash::make('super123'),
+        ]);
+
         $this->truncateLaratrustTables();
 
         $config = Config::get('laratrust_seeder.roles_structure');
