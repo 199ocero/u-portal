@@ -10,7 +10,7 @@
   </p>
 </div>
 <!-- ABOUT THE PROJECT -->
-## About The Project
+### About The Project
 
 <summary>Login Page</summary>
 <img src="images/login_page.png" style="max-width: 100%;">
