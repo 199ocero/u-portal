@@ -6,7 +6,7 @@
 <h3 align="center">UPortal</h3>
 
   <p align="center">
-    Hussle free access to university portal.
+    Hassle-free access to University Portal
   </p>
 </div>
 <summary>Login Page</summary>
@@ -41,6 +41,7 @@ This is the instructions on setting up the project locally. To get a local copy 
    ```sh
    git clone https://github.com/199ocero/u-portal.git
    ```
+
    <br>
    <strong>Note: </strong>Please install xampp with a php version of 7.4+
    <br>
