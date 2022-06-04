@@ -14,12 +14,12 @@
                                 </h2>
                             </div>
                             <div class="box-body py-20">
-                                <img src="{{ asset('backend/images/uportal_banner.png') }}" alt="UPortal"
-                                    class="img-fluid">
-                                <h4 class="text-white my-20 font-weight-500">Hussle free access to university portal. The
-                                    chatbot that can help students who don't have enough money to buy a data promo. Students
-                                    can access the announcements, activities, resources, etc. without going to school
-                                    portal.</h4>
+                                <img src="{{ asset('backend/images/banner.jpg') }}" alt="UPortal" class="img-fluid">
+                                <h4 class="text-white my-20 text-justify">No data promo to access information and other
+                                    needed resources from your school portal? No worries, UPortal has you covered. UPortal
+                                    is a platform that provides students a hassle-free access to announcements, activities,
+                                    learning materials, and other resources. And with its integrated chatbot feature,
+                                    disseminating information becomes simpler and even more convenient.</h4>
                             </div>
                         </div>
                     </div>
