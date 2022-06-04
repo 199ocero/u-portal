@@ -5,6 +5,7 @@ use App\Models\Facebook;
 use App\Models\Irregular;
 use BotMan\BotMan\BotMan;
 use App\Models\Announcement;
+use App\Models\Complete;
 use Dialogflow2\DialogFlowV2;
 use App\Models\StudentSection;
 use BotMan\BotMan\Middleware\Wit;
@@ -38,6 +39,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     $drop = Drop::where('student_id',$facebookID->student_id)->get();
     $student = StudentSection::where('student_id',$facebookID->student_id)->get()->toArray();
     $irregular = Irregular::where('student_id',$facebookID->student_id)->get()->toArray();
+    $completes = Complete::where('student_id',$facebookID->student_id)->get();
     $status = array();
     $announcement= collect();
 
@@ -50,7 +52,8 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
             $section_id[]=$drop->section_id;
             $subject_id[]=$drop->subject_id;
         }
-        $announcement = Announcement::whereNotIn('section_id',$section_id)->whereNotIn('subject_id',$subject_id)->get();
+        $announcement = Announcement::whereNotIn('section_id',$section_id)->whereNotIn('subject_id',$subject_id)->whereNotIn('id',$completes->announcement_id)->get();
+
 
         for($i=0;$i<count($announcement);$i++){
             for($y=0;$y<count($irregular);$y++){
@@ -65,11 +68,11 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
         }
     }else{
         for($i=0;$i<count($student);$i++){
-            $announce = Announcement::where('section_id',$student[$i]['section_id'])->get();
+            $announce = Announcement::where('section_id',$student[$i]['section_id'])->whereNotIn('id',$completes->announcement_id)->get();
 
             for($x=0;$x<count($announce);$x++){
                 $announcement->push($announce[$x]);
-                $announces = Announcement::where('section_id',$student[$i]['section_id'])->get()->toArray();
+                $announces = Announcement::where('section_id',$student[$i]['section_id'])->whereNotIn('id',$completes->announcement_id)->get()->toArray();
                 for($y=0;$y<count($irregular);$y++){
                     if($irregular[$y]['section_id']==$announces[0]['section_id'] && $irregular[$y]['subject_id']==$announces[0]['subject_id']){
                         array_push($status,'Irregular');
