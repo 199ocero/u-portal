@@ -76,7 +76,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
     }
     $anns = "";
     if(count($announcement->toArray())==0){
-        $bot->reply("No announcement. You are either drop in all section/subject or did not register your Facebook ID or you have completed all your activities.");
+        $bot->reply("No announcement yet. You are either drop in all section/subject or did not register your Facebook ID or you have completed all your activities.");
     }else{
         foreach($announcement as $announcement){
             
