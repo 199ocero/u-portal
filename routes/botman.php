@@ -95,7 +95,7 @@ $botman->hears('ANNOUNCEMENT_PAYLOAD', function ($bot) {
             $anns = "✅Section: $section\n✅Subject: $subject\n✅Date: $date\n✅Time: $time\n✅Activity Title: $announcement->act_title\n\n".$anns;
         }
         
-        $bot->reply("📝Announcement Information📝\n\n$anns");
+        $bot->reply("📝Announcement Information📝\n\n$anns\n\nNote: If you want to see the full details of announcement please click the Visit Uportal button and login your credentials.");
     }
     
 });
