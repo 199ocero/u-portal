@@ -51,21 +51,34 @@ This is the instructions on setting up the project locally. To get a local copy 
    Composer install
    ```
    <br>
-      Run your xammp control panel and start the Apache and MySQL
+      Run your xammp control panel and start the Apache and MySQL. In your phpmyadmin, create a database called uportal.
    <br>
-3. Migrate Database
+3. Copy .env.example and rename it .env
+   ```sh
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=uportal ->your database name
+   DB_USERNAME=root -> your username
+   DB_PASSWORD= ->your password and leave blank if no password
+   ```
+4. Migrate Database
    ```sh
    php artisan migrate
    ```
-4. Run Seeder
+5. Run Seeder
    ```sh
    php artisan db:seed
    ```
-5. Run the project
+6. Go to routes folder and select web.php and set true when creating superadmin and set false after create
+   ```sh
+   Auth::routes(['register' => true]);
+   ```
+7. Run the project
    ```sh
    php artisan serve
    ```
-6. Go to routes folder and select web.php and set true when creating superadmin and set false after create
+8. After creating superadmin, set register to false
    ```sh
    Auth::routes(['register' => false]);
    ```
