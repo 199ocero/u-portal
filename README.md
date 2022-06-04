@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="images/uportal_logo.png" style="max-width: 100%;">
+    <img src="images/banner.jpg" style="max-width: 100%;">
 
 <h3 align="center">UPortal</h3>
 
@@ -25,6 +25,7 @@ UPortal is a free access to university portal. The students that don't have enou
 - [Laravel](https://laravel.com)
 - [Bootstrap](https://getbootstrap.com)
 - [JQuery](https://jquery.com)
+- [Javascript](https://www.javascript.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
