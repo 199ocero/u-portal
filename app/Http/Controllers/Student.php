@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Drop;
 use App\Models\User;
 use App\Models\Complete;
+use App\Models\Facebook;
 use App\Models\Irregular;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ use App\Models\InstructorSectionSubject;
 
 class Student extends Controller
 {
+    
     public function viewAnnouncement(){
         $drop = Drop::where('student_id',Auth::id())->get();
         $student = StudentSection::where('student_id',Auth::id())->get()->toArray();
